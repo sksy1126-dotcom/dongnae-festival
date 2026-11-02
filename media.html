@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홍보 디자인 - 동래읍성역사문화축제</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="site-fixes.css">
+
+<style>
+/* ===== 서브 헤더 ===== */
+.sub-header {
+  background: #1a365d;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+.sub-header h1 {
+  font-size: 40px;
+  margin: 0 0 10px;
+  font-weight: 800;
+}
+.sub-header p {
+  font-size: 16px;
+  color: #d4deeb;
+  margin: 0;
+}
+
+/* ===== 공통 콘텐츠 영역 ===== */
+.sub-content {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* ===== 홍보 디자인 ===== */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.video-item { min-width: 0; }
+.video-item h3 {
+  margin: 12px 2px 5px;
+  color: #142b4d;
+  font-size: 17px;
+}
+.video-item p {
+  margin: 0 2px;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.video-placeholder {
+  aspect-ratio: 16/9;
+  width: 100%;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#142b4d,#243f68);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 18px;
+  box-sizing: border-box;
+  border: 1px dashed #8da2bd;
+}
+.video-placeholder-icon {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding-left: 3px;
+  font-size: 18px;
+}
+.video-placeholder strong { font-size: 15px; }
+.video-placeholder small {
+  color: #d4deeb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.video-link {
+  display: block;
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #142b4d;
+}
+.video-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+.video-link:hover img { transform: scale(1.04); }
+
+.video-card {
+  position: relative;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+  border: none;
+  padding: 0;
+}
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.video-card .play-icon {
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+  background: rgba(0,0,0,.6);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  padding-left: 4px;
+  pointer-events: none;
+}
+
+/* ===== 포토갤러리 ===== */
+.photo-gallery-section {
+  max-width: 1200px;
+  margin: 100px auto 90px;
+  padding: 0 20px;
+}
+
+.gallery-heading {
+  margin-bottom: 28px;
+}
+
+.gallery-eyebrow {
+  color: #d92f3b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  margin: 0 0 10px;
+}
+
+.gallery-heading h2 {
+  color: #142b4d;
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.gallery-heading > p:last-child {
+  color: #718096;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* 사진 4열 배치 */
+.photo-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.photo-gallery-item {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #edf1f5;
+  cursor: pointer;
+}
+
+.photo-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.photo-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.photo-gallery-item::after {
+  content: "확대 보기 +";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  background: rgba(9, 27, 51, .45);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.photo-gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* 자세히 보기 버튼 */
+.gallery-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.gallery-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 15px 28px;
+  border: 1px solid #142b4d;
+  border-radius: 40px;
+  color: #142b4d;
+  background: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all .25s ease;
+}
+
+.gallery-more-btn:hover {
+  color: #fff;
+  background: #142b4d;
+}
+
+/* ===== 갤러리 확대 모달 ===== */
+.photo-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(4, 12, 25, .94);
+  align-items: center;
+  justify-content: center;
+  padding: 50px 70px;
+  box-sizing: border-box;
+}
+
+.photo-modal.active {
+  display: flex;
+}
+
+.photo-modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.photo-modal-close,
+.photo-modal-prev,
+.photo-modal-next {
+  position: absolute;
+  border: 0;
+  color: #fff;
+  background: rgba(255,255,255,.14);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.photo-modal-close {
+  top: 24px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+}
+
+.photo-modal-prev,
+.photo-modal-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  font-size: 30px;
+}
+
+.photo-modal-prev { left: 22px; }
+.photo-modal-next { right: 22px; }
+
+.photo-modal-count {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: .12em;
+}
+
+/* ===== 기존 모달 ===== */
+#mediaModal { z-index: 9999; }
+
+/* ===== 반응형 ===== */
+@media (max-width: 900px) {
+  .media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .photo-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .media-grid { grid-template-columns: 1fr; }
+  .sub-header h1 { font-size: 32px; }
+  .photo-gallery-section {
+    margin: 70px auto;
+    padding: 0 16px;
+  }
+  .gallery-heading h2 { font-size: 27px; }
+  .photo-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .photo-modal { padding: 45px 15px; }
+  .photo-modal-prev { left: 5px; }
+  .photo-modal-next { right: 5px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 상단 공지 -->
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link">
+    <span class="announcement-tag">NEW</span>
+    <span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span>
+    <span class="announcement-more">자세히 보기 ↗</span>
+  </a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+
+<!-- 상단 메뉴 -->
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+
+    <div class="nav-item">
+      <a href="about.html">축제 소개</a>
+      <div class="sub-menu">
+        <a href="about.html">축제 개요</a>
+        <a href="about_story.html">동래읍성 이야기</a>
+        <a href="about_history.html">축제 연혁</a>
+        <a href="about_leaflet.html">축제 리플릿</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="programs.html">프로그램</a>
+      <div class="sub-menu">
+        <a href="programs.html">전체 프로그램</a>
+        <a href="experience.html">전통문화 체험</a>
+        <a href="performance.html">공연 및 퍼레이드</a>
+        <a href="course.html">추천 코스</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="rebranding.html">리브랜딩</a>
+      <div class="sub-menu">
+        <a href="rebranding.html">리브랜딩 콘셉트</a>
+        <a href="rebranding_character.html">캐릭터 디자인</a>
+        <a href="rebranding_logo.html">로고 디자인</a>
+        <a href="rebranding_system.html">디자인 시스템</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="media.html">홍보 콘텐츠</a>
+      <div class="sub-menu">
+        <a href="media.html">홍보 디자인</a>
+        <a href="video.html">영상 콘텐츠</a>
+        <a href="gallery.html">포토 갤러리</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="events.html">이벤트</a>
+      <div class="sub-menu">
+        <a href="events.html#online">온라인 참여 이벤트</a>
+        <a href="events.html#onsite">현장 체험 이벤트</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="visit.html">방문 안내</a>
+      <div class="sub-menu">
+        <a href="visit.html">오시는 길</a>
+        <a href="visit_map.html">축제장 안내도</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html"
+       data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle"
+          aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+
+<!-- 타이틀 영역 -->
+<div class="sub-header">
+  <h1>홍보 디자인</h1>
+  <p>축제의 아이덴티티를 담은 포스터와 다양한 홍보물을 소개합니다.</p>
+</div>
+
+<!-- ===== 홍보 디자인 영역 ===== -->
+<section class="sub-content media-design-section" id="design">
+  <div class="section-heading">
+    <p class="eyebrow">PROMOTIONAL DESIGN</p>
+    <h2>홍보 디자인</h2>
+    <p>포스터, 배너, 카드뉴스 등 축제 홍보물을 소개합니다.</p>
+  </div>
+
+  <div class="media-design-grid">
+    <div class="asset-placeholder">
+      <span class="placeholder-icon">01</span>
+      <strong>포스터 이미지 교체 영역</strong>
+      <small>assets/media/동래읍성 역사문화축제 포스터(3).png</small>
+    </div>
+
+    <div class="asset-placeholder">
+      <span class="placeholder-icon">02</span>
+      <strong>배너 이미지 교체 영역</strong>
+      <small>assets/media/gallery-webdesign.png</small>
+    </div>
+
+    <div class="asset-placeholder">
+      <span class="placeholder-icon">03</span>
+      <strong>카드뉴스 이미지 교체 영역</strong>
+      <small>assets/media/gallery-cardnews.jpg</small>
+    </div>
+  </div>
+</section>
+

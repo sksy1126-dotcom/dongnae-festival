@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>축제장 안내도 - 동래읍성역사문화축제</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  body { background-color: #f4f6f8; margin: 0; font-family: 'Noto Sans KR', sans-serif; }
+  .visit-header { background-color: #1a365d; color: #fff; text-align: center; padding: 60px 20px 80px; }
+  .visit-header h2 { font-size: 32px; margin: 0 0 10px; font-weight: 700; }
+  .visit-header p { font-size: 15px; opacity: 0.8; margin: 0; }
+  .visit-container { max-width: 850px; margin: -40px auto 60px; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 40px; }
+  .map-section h3 { font-size: 22px; color: #1a365d; margin-top: 0; margin-bottom: 15px; padding-left: 12px; border-left: 4px solid #d9381e; }
+  .festival-map-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; background: #fff; }
+  .festival-map-box img { width: 100%; height: auto; display: block; }
+</style>
+<link rel="stylesheet" href="site-fixes.css"></head>
+<body>
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+  
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+    </div></div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+    </div></div>
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+    </div></div>
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a>
+    </div></div>
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+    </div></div>
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+    </div></div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+
+<div class="visit-header">
+  <h2>축제장 내부 안내도</h2>
+  <p>구역별 프로그램 위치와 부스 배치를 확인하세요.</p>
+</div>
+
+<div class="visit-container">
+  <div class="map-section">
+    <div class="festival-map-box">
+      <!-- 파일명이 visit3.jpg 라면 아래처럼 경로를 적어주세요. -->
+      <img src="assets/visit/visit3.jpg" alt="동래읍성역사문화축제 축제장 안내도">
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

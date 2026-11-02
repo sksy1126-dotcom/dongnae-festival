@@ -1,0 +1,431 @@
+/* =====================================================
+   DONGNAE FESTIVAL RESPONSIVE PATCH
+   PC 디자인 유지 / 태블릿·모바일 가로 밀림 방지
+   ===================================================== */
+html { width:100%; max-width:100%; overflow-x:clip; }
+body { width:100%; max-width:100%; min-width:0; overflow-x:clip; }
+*, *::before, *::after { box-sizing:border-box; }
+img, video, iframe, svg { max-width:100%; }
+main, section, article, header, footer, .section-container, .sub-content,
+.content-section, .overview-wrapper, .overview-container, .history-wrapper,
+.visit-container, .sub-container, .rebranding-container, .map-inner { min-width:0; }
+button, input, select, textarea { max-width:100%; }
+
+/* 넓은 태블릿에서 헤더 간격 확보 */
+@media (max-width: 1180px) {
+  .site-header { gap:14px !important; padding-left:22px !important; padding-right:22px !important; }
+  .brand { min-width:0 !important; flex:0 1 auto; }
+  .brand-logo { max-width:150px; }
+  .main-nav { gap:clamp(9px,1.25vw,16px) !important; }
+  .main-nav a { font-size:14px !important; }
+  .header-tools { gap:7px !important; }
+  .header-cta { padding:9px 13px !important; font-size:13px !important; }
+}
+
+/* 태블릿 및 모바일 공통 메뉴 */
+.menu-toggle {
+  display:none; border:1px solid #ffffff55; background:transparent; color:#fff;
+  border-radius:8px; width:42px; height:40px; font-size:25px; line-height:1;
+  align-items:center; justify-content:center; flex:0 0 auto;
+}
+@media (max-width: 1000px) {
+  .site-header {
+    height:auto !important; min-height:72px; padding:12px 20px !important;
+    display:flex !important; flex-wrap:wrap; justify-content:space-between !important;
+    gap:10px 14px !important;
+  }
+  .site-header .brand { order:1; height:auto; max-width:calc(100% - 120px); }
+  .site-header .brand-logo { width:auto !important; height:42px !important; max-width:160px; }
+  .site-header .brand-character { width:34px; height:38px; }
+  .site-header .header-tools { order:2; margin-left:auto; }
+  .site-header .menu-toggle { display:flex !important; order:3; }
+  .site-header .main-nav {
+    display:none !important; order:4; flex:0 0 100% !important; width:100%;
+    flex-direction:column !important; align-items:stretch !important;
+    justify-content:flex-start !important; gap:0 !important; padding:8px 0 4px;
+    border-top:1px solid #ffffff25; margin:4px 0 0;
+  }
+  .site-header .main-nav.open { display:flex !important; }
+  .site-header .main-nav > a,
+  .site-header .main-nav > .nav-item > a,
+  .site-header .main-nav .nav-item > a {
+    display:block; width:100%; padding:11px 8px !important; font-size:15px !important;
+    white-space:normal !important; border-bottom:1px solid #ffffff18;
+  }
+  .site-header .nav-item { width:100%; }
+  .site-header .sub-menu {
+    position:static !important; display:flex !important; flex-direction:row !important;
+    flex-wrap:wrap; gap:6px 14px !important; padding:5px 8px 10px !important;
+    background:transparent !important; box-shadow:none !important; border-radius:0 !important;
+  }
+  .site-header .sub-menu a { color:#e8edf5 !important; font-size:12px !important; }
+  .site-header .header-tools .header-cta { padding:8px 12px !important; font-size:12px !important; }
+
+  .quick-wrap { width:94%; grid-template-columns:1fr !important; margin-top:-18px; }
+  .quick-links { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .quick-links a { min-height:105px !important; }
+  .utility-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center; }
+  .program-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .video-feature-inner { grid-template-columns:1fr !important; gap:22px !important; }
+  .about-band { flex-direction:column !important; align-items:stretch !important; padding:48px 24px !important; gap:24px !important; }
+  .about-copy, .about-fortress { width:100% !important; max-width:100% !important; flex:1 1 auto !important; }
+  .about-fortress { max-height:360px !important; }
+  .sns-grid { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .rebranding-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .visit-section { flex-direction:column; align-items:flex-start; }
+  .bottom-panels { grid-template-columns:1fr !important; }
+  .footer-info-area { align-items:flex-start !important; }
+  .footer-links { flex-wrap:wrap; }
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top:75px; }
+  .section-container { width:calc(100% - 32px) !important; }
+  .hero { min-height:520px !important; height:68svh !important; max-height:680px; }
+  .hero-copy { left:6%; right:6%; top:12%; max-width:560px; }
+  .hero h1 { font-size:clamp(36px,9vw,54px) !important; }
+  .hero-desc, .hero-date { font-size:13px !important; }
+  .section-title { align-items:flex-start; flex-wrap:wrap; gap:10px; }
+  .section-title > div { min-width:0; }
+  .section-title p:not(.eyebrow) { font-size:13px !important; }
+  .program-grid { grid-template-columns:1fr !important; }
+  .program-image { height:auto !important; aspect-ratio:16/9; }
+  .video-gallery { grid-template-columns:1fr !important; }
+  .video-main { height:auto !important; aspect-ratio:16/9; }
+  .video-side { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto; }
+  .video-side button { aspect-ratio:16/9; min-height:0; }
+  .sns-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .rebranding-strip { padding:48px 16px !important; }
+  .rebranding-container { width:100%; }
+  .rebranding-header { margin-bottom:24px !important; }
+  .rebranding-grid { grid-template-columns:1fr !important; gap:16px !important; }
+  .rebrand-card-content { padding:18px !important; }
+  .rebrand-card-content h3 { font-size:19px !important; }
+  .rebrand-card-content p { font-size:14px !important; }
+  .about-band { padding:42px 20px !important; }
+  .about-copy > p:not(.eyebrow) { font-size:14px !important; }
+  .site-footer { grid-template-columns:1fr !important; padding:28px 20px !important; }
+  .footer-links { gap:12px 18px; }
+  .back-top { right:18px; bottom:18px; }
+  .site-footer-new { padding-top:28px; }
+  .sponsor-logos { justify-content:flex-start; }
+  .sponsor-logos img { max-width:calc(50% - 12px); height:24px; }
+  .footer-left { min-width:0 !important; width:100%; }
+  .footer-right-links { width:100%; flex-direction:row !important; flex-wrap:wrap; }
+  .footer-right-links a { flex:1 1 140px; }
+
+  .overview-wrapper { min-height:0 !important; padding:30px 18px !important; }
+  .overview-container { flex-direction:column !important; gap:24px !important; }
+  .overview-image { flex:0 0 auto !important; width:100% !important; max-height:none !important; }
+  .overview-image img { width:100%; height:auto !important; max-height:none !important; }
+  .overview-text { width:100%; }
+  .overview-title { font-size:clamp(27px,7vw,34px) !important; line-height:1.25; }
+  .overview-subtitle { font-size:15px !important; margin-bottom:18px !important; }
+  .overview-highlight { font-size:17px !important; padding:16px !important; margin-bottom:20px !important; }
+  .overview-text-box h3 { font-size:20px !important; }
+  .overview-text-box p { font-size:14px !important; }
+  .history-wrapper { margin:38px auto !important; padding:0 18px !important; }
+  .history-title { font-size:28px !important; }
+  .history-subtitle { font-size:15px !important; margin-bottom:28px !important; }
+  .history-images { flex-direction:column !important; gap:18px !important; }
+  .history-images img { flex:1 1 auto !important; max-width:100% !important; }
+  .content-section { margin:38px auto !important; padding:0 18px !important; }
+  .content-title { font-size:27px !important; }
+  .content-subtitle { margin-bottom:24px !important; }
+  .flex-layout { flex-direction:column !important; gap:24px !important; }
+  .image-box, .text-box { flex:1 1 auto !important; width:100% !important; min-width:0 !important; }
+  .text-box h3 { font-size:20px !important; }
+  .text-box p { font-size:14px !important; }
+
+  .sub-header, .visit-header { padding:48px 18px 58px !important; }
+  .sub-header h1, .sub-header h2, .visit-header h2 { font-size:30px !important; }
+  .sub-content { width:100%; margin:36px auto !important; padding:0 18px !important; }
+  .media-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:12px !important; }
+  .program-list { grid-template-columns:1fr; }
+  .program-item { padding:22px !important; }
+  .sub-container, .visit-container { width:calc(100% - 32px) !important; max-width:none !important; margin: -28px auto 36px !important; padding:22px !important; }
+  .section-box h3 { font-size:20px !important; }
+  .section-box p { font-size:14px !important; }
+  .color-item { width:calc(50% - 8px) !important; }
+  .map-container { height:auto !important; aspect-ratio:16/9; }
+  .map-container img { width:100%; height:100%; object-fit:cover; }
+  .info-section { padding:0 16px !important; }
+  .info-table { font-size:13px !important; table-layout:fixed; }
+  .info-table th { width:66px !important; white-space:normal !important; }
+  .info-table td { word-break:break-word !important; }
+  .map-buttons a { padding:10px 14px !important; font-size:12px !important; }
+  .modal { padding:48px 14px 58px !important; }
+  .modal-content { max-width:100% !important; width:100%; }
+}
+
+@media (max-width: 480px) {
+  .site-header { padding:10px 14px !important; }
+  .site-header .brand-logo { height:36px !important; max-width:135px; }
+  .site-header .header-tools { gap:4px !important; }
+  .site-header .header-tools a:not(.header-cta), .site-header .header-tools button:not(.search-btn) { display:none; }
+  .site-header .header-tools .header-cta { font-size:11px !important; padding:7px 10px !important; }
+  .quick-links { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .quick-links a { min-height:94px !important; }
+  .utility-card { grid-template-columns:1fr 1fr; }
+  .media-grid { grid-template-columns:1fr !important; }
+  .video-side { grid-template-columns:1fr 1fr; }
+  .event-panel { gap:10px; padding:16px !important; }
+  .gift { font-size:42px; margin-right:0; }
+  .notice-panel li { align-items:flex-start; }
+  .notice-panel li a { min-width:0; overflow-wrap:anywhere; }
+  .sub-container, .visit-container { padding:18px !important; }
+  .map-info div { flex-direction:column; gap:3px; }
+  .map-info strong { width:100% !important; }
+  .info-table th { width:58px !important; }
+}
+/* =========================================
+   메인 포토갤러리 반응형 수정
+   PC 4열 / 태블릿 3열 / 모바일 2열
+   ========================================= */
+
+/* PC */
+.gallery-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(150px, 17vw, 230px);
+  gap: 14px;
+}
+
+/* PC에서는 처음 8개만 노출 */
+.gallery-grid .gallery-item:nth-child(n+9) {
+  display: none;
+}
+
+/* 태블릿 */
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 180px;
+    gap: 12px;
+  }
+
+  .gallery-grid .gallery-item-feature {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery-grid .gallery-item:nth-child(6) {
+    grid-column: span 1;
+  }
+
+  /* 태블릿은 처음 6개만 노출 */
+  .gallery-grid .gallery-item:nth-child(n+7) {
+    display: none;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 40px 0 !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 155px;
+    gap: 10px;
+  }
+
+  /* 첫 번째 대표 이미지는 가로 전체 */
+  .gallery-grid .gallery-item-feature {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  /* 기존 6번 이미지의 가로 확장 해제 */
+  .gallery-grid .gallery-item:nth-child(6) {
+    grid-column: span 1;
+  }
+
+  /* 모바일은 처음 5개만 노출 */
+  .gallery-grid .gallery-item:nth-child(n+6) {
+    display: none;
+  }
+
+  .gallery-label {
+    left: 10px;
+    right: 8px;
+    bottom: 10px;
+  }
+
+  .gallery-label small {
+    font-size: 9px;
+  }
+
+  .gallery-label b {
+    font-size: 15px;
+  }
+
+  .gallery-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px;
+    border: 1px solid #d8d3c9;
+    border-radius: 30px;
+    color: #082345;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+/* 아주 작은 스마트폰 */
+@media (max-width: 380px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .gallery-grid .gallery-item-feature {
+    grid-column: span 1;
+  }
+}
+
+/* ===== 2027 site-wide consistency and replaceable media slots ===== */
+.site-header { position:sticky; top:0; }
+.site-header .main-nav .sub-menu a { white-space:nowrap; }
+.standard-page { background:#f7f8fa; min-height:60vh; padding-bottom:48px; }
+.standard-page .sub-header { background:#14243d; color:#fff; text-align:center; padding:58px 20px 66px; }
+.standard-page .sub-header h1 { margin:8px 0; font-size:clamp(28px,4vw,40px); }
+.standard-page .sub-header p { color:#dbe3ed; }
+.standard-content { max-width:1120px; margin:-24px auto 0; padding:0 24px; position:relative; }
+.content-panel { background:#fff; border:1px solid #e8ebef; border-radius:16px; padding:clamp(20px,3vw,36px); margin-bottom:22px; box-shadow:0 8px 24px rgba(10,30,55,.05); }
+.content-panel h2 { color:#14243d; font-size:22px; margin:0 0 14px; }
+.content-panel p { line-height:1.8; color:#596579; }
+.asset-placeholder { min-height:190px; aspect-ratio:16/9; background:#f1f3f6; border:1px dashed #aab4c2; border-radius:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; text-align:center; padding:20px; color:#536176; }
+.asset-placeholder small { color:#8994a3; overflow-wrap:anywhere; }
+.placeholder-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:#e2e8f0; color:#14243d; font-weight:800; }
+.primary-link { display:inline-flex; margin-top:18px; padding:12px 18px; border-radius:8px; background:#14243d; color:#fff; font-weight:700; }
+.primary-link.is-placeholder { opacity:.65; cursor:not-allowed; }
+.content-placeholder-note,.visit-note { background:#f8f5ed; border-left:3px solid #b99a60; padding:13px 16px; color:#6d624d; font-size:14px; line-height:1.7; }
+.event-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+.media-design-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.section-heading { margin:0 0 22px; }
+.section-heading h2 { color:#14243d; font-size:28px; margin:5px 0; }
+.section-heading p { color:#6e7b8d; }
+.media-design-section { padding-top:0; }
+.video-card { width:100%; }
+.map-image-box img,.festival-map-box img { width:100%; height:auto; object-fit:contain; }
+.visit-container { max-width:1120px; }
+.map-info { line-height:1.85; }
+.site-footer { background:#071d38; color:#fff; text-align:center; padding:28px 18px; }
+@media(max-width:1000px) {
+ .media-design-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:768px) {
+ .standard-content { padding:0 16px; }
+ .event-cards,.media-design-grid { grid-template-columns:1fr; }
+ .content-panel { padding:20px; }
+ .standard-page .sub-header { padding:44px 18px 52px; }
+ .visit-container { width:calc(100% - 32px)!important; padding:20px!important; }
+ .map-section { margin-bottom:34px; }
+ .map-section h3 { font-size:19px!important; }
+ .map-info div { display:flex; flex-direction:column; gap:2px; }
+ .map-info strong { width:auto!important; }
+}
+
+
+/* ===== 최상단 리브랜딩 오픈 공지 바 ===== */
+.announcement-bar{position:relative;z-index:1001;min-height:38px;padding:0 54px 0 20px;background:#30343b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1.4;}
+.announcement-link{width:100%;max-width:1200px;display:flex;align-items:center;justify-content:center;gap:12px;color:inherit;text-decoration:none;text-align:center;padding:8px 0;}
+.announcement-tag{flex:0 0 auto;background:#e92d35;color:#fff;border-radius:20px;padding:3px 9px;font-size:10px;font-weight:800;letter-spacing:.08em;}
+.announcement-more{flex:0 0 auto;color:#f0c66d;font-size:12px;font-weight:700;}
+.announcement-link:hover .announcement-more{text-decoration:underline;}
+.announcement-close{position:absolute;right:18px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;}
+.announcement-bar.is-hidden{display:none;}
+@media(max-width:700px){.announcement-bar{min-height:42px;padding:0 38px 0 12px;font-size:11px;}.announcement-link{justify-content:flex-start;gap:8px;text-align:left;padding:8px 0;}.announcement-more{display:none;}.announcement-close{right:7px;font-size:20px;}}
+
+
+/* ===== 2027 메인 D-DAY 카운트다운 ===== */
+.countdown-section{position:relative;isolation:isolate;min-height:420px;display:grid;place-items:center;overflow:hidden;color:#fff;background:#0d2342;text-align:center;padding:64px 24px;}
+.countdown-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,rgba(5,19,39,.88),rgba(9,31,58,.68)),linear-gradient(0deg,rgba(4,14,29,.38),rgba(4,14,29,.18));}
+.countdown-content{width:min(100%,980px);margin:0 auto;}
+.countdown-kicker{margin:0 0 10px;color:#e8c779;font-size:12px;font-weight:800;letter-spacing:.18em;}
+.countdown-content h2{margin:0;color:#fff;font-size:clamp(23px,3vw,34px);font-weight:800;letter-spacing:-.04em;}
+.countdown-dday{margin:10px 0 22px;color:#fff;font-size:clamp(48px,7vw,78px);font-weight:900;line-height:1;letter-spacing:-.045em;text-shadow:0 5px 24px rgba(0,0,0,.28);}
+.countdown-clock{display:flex;justify-content:center;align-items:center;gap:16px;margin:0 auto 26px;}
+.countdown-unit{width:clamp(104px,14vw,150px);min-height:118px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(255,255,255,.24);border-radius:10px;background:rgba(255,255,255,.11);backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.countdown-unit strong{font-size:clamp(34px,5vw,54px);font-weight:900;line-height:1;font-variant-numeric:tabular-nums;}
+.countdown-unit span{font-size:10px;letter-spacing:.16em;color:#d6dfeb;font-weight:700;}
+.countdown-clock>i{font-size:28px;font-style:normal;color:#d8c28c;font-weight:700;}
+.countdown-date{display:flex;justify-content:center;align-items:center;gap:12px;margin:0;color:#f4f6fa;font-size:15px;font-weight:600;}
+.countdown-date span{color:#e8c779;font-size:18px;}
+.countdown-date b{height:16px;width:1px;background:rgba(255,255,255,.35);margin:0 8px;}
+@media(max-width:640px){.countdown-section{min-height:350px;padding:48px 14px;background-position:center;} .countdown-kicker{font-size:9px;letter-spacing:.12em;} .countdown-content h2{font-size:22px;} .countdown-dday{font-size:54px;margin:12px 0 18px;} .countdown-clock{gap:6px;margin-bottom:20px;} .countdown-unit{width:clamp(64px,20vw,92px);min-height:84px;border-radius:7px;gap:6px;} .countdown-unit strong{font-size:clamp(25px,7vw,34px);} .countdown-unit span{font-size:8px;letter-spacing:.1em;} .countdown-clock>i{font-size:18px;} .countdown-date{font-size:11px;gap:7px;flex-wrap:wrap;} .countdown-date b{margin:0 3px;height:12px;}}
+
+
+
+/* =========================================================
+   SHARED RESPONSIVE RULES — MAIN + DETAIL PAGES
+   ========================================================= */
+@media (max-width: 1000px) {
+  .sub-content,
+  .standard-content,
+  .category-wrap,
+  .content-section,
+  .history-wrapper,
+  .visit-container,
+  .sub-container {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .sub-header,
+  .visit-header,
+  .category-hero,
+  .standard-page .sub-header {
+    padding: 44px 18px 52px;
+  }
+  .sub-header h1,
+  .sub-header h2,
+  .visit-header h1,
+  .visit-header h2,
+  .category-hero h1,
+  .standard-page .sub-header h1 {
+    font-size: clamp(27px, 7vw, 32px);
+  }
+  .sub-header p,
+  .visit-header p,
+  .category-hero span,
+  .standard-page .sub-header p {
+    font-size: 13px;
+  }
+  .content-panel,
+  .section-box {
+    padding: 20px;
+  }
+  .detail-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .detail-card img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    aspect-ratio: 16 / 9;
+  }
+}
+@media (max-width: 480px) {
+  .sub-content,
+  .standard-content,
+  .category-wrap,
+  .content-section,
+  .history-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .primary-link,
+  .primary-btn,
+  .category-shortcuts a,
+  .map-buttons a {
+    min-height: 40px;
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+}

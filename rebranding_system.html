@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디자인 시스템 - 동래읍성역사문화축제</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  body { background-color: #f4f6f8; margin: 0; font-family: 'Noto Sans KR', sans-serif; }
+  .sub-header { background-color: #1a365d; color: #fff; text-align: center; padding: 60px 20px 80px; }
+  .sub-header h2 { font-size: 32px; margin: 0 0 10px; font-weight: 700; }
+  .sub-container { max-width: 900px; margin: -40px auto 60px; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 40px; position: relative; z-index: 10; }
+  .section-box { margin-bottom: 50px; }
+  .section-box h3 { font-size: 24px; color: #1a365d; margin-top: 0; margin-bottom: 20px; padding-left: 12px; border-left: 4px solid #d9381e; }
+  .section-box p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 15px; }
+  
+  /* 컬러 팔레트 */
+  .color-grid { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .color-item { width: 100px; height: 100px; border-radius: 12px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; color: #fff; font-weight: bold; font-size: 12px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+  
+  /* 이미지가 들어갈 자리 */
+  .img-placeholder { width: 100%; border-radius: 12px; overflow: hidden; background: #f8f9fa; border: 1px dashed #ccc; padding: 60px 20px; text-align: center; color: #888; font-size: 15px; margin-top: 20px; }
+  .img-placeholder img { width: 100%; height: auto; display: block; object-fit: contain; }
+</style>
+<link rel="stylesheet" href="site-fixes.css"></head>
+<body>
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+  
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+    </div></div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+    </div></div>
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+    </div></div>
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a>
+    </div></div>
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+    </div></div>
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+    </div></div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+<div class="sub-header">
+  <h2>디자인 시스템</h2>
+  <p>일관된 축제 브랜드 경험을 위한 디자인 가이드입니다.</p>
+</div>
+<div class="sub-container">
+  
+  <!-- 컬러 팔레트 -->
+  <div class="section-box">
+    <h3>컬러 팔레트</h3>
+    <p>축제의 정체성을 나타내는 대표 색상입니다.</p>
+    <div class="color-grid">
+      <div class="color-item" style="background-color: #111F39;">#111F39</div>
+      <div class="color-item" style="background-color: #C62828;">#C62828</div>
+      <div class="color-item" style="background-color: #C6A15B;">#C6A15B</div>
+      <div class="color-item" style="background-color: #F8F4E8; color: #333; text-shadow: none; border: 1px solid #ddd;">#F8F4E8</div>
+    </div>
+  </div>
+
+  <!-- 디자인 시스템 상세 이미지 -->
+  <div class="section-box">
+    <h3>디자인 시스템 가이드</h3>
+    <p>로고 규정, 타이포그래피, 그래픽 모티프 등 상세 가이드라인입니다.</p>
+    
+    <!-- 
+      [이미지 추가 방법]
+      아래 주석을 풀고 src에 이미지 경로를 적어주세요.
+      예: <img src="assets/branding/system_detail.png" alt="디자인 시스템 가이드">
+    -->
+    <div class="img-placeholder">
+       <img src="assets/branding/logomode.png" alt="디자인 시스템 상세 가이드"> 
+    
+    </div>
+  </div>
+
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
+
+

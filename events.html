@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>이벤트 - 동래읍성역사문화축제</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="site-fixes.css">
+
+<style>
+
+/* ===== 이벤트 페이지 ===== */
+
+.event-intro {
+  max-width: 1200px;
+  margin: 52px auto 0;
+  padding: 0 20px;
+}
+
+.event-intro h2 {
+  color: #142b4d;
+  font-size: 26px;
+  margin: 0 0 10px;
+}
+
+.event-intro p {
+  color: #718096;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 이벤트 카드 배치 */
+
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.event-card {
+  background: #fff;
+  border: 1px solid #e5eaf0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(20,43,77,.06);
+}
+
+.event-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.event-card-body {
+  padding: 24px;
+}
+
+.event-label {
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: #d9343e;
+  font-weight: 800;
+}
+
+.event-card h2 {
+  font-size: 23px;
+  color: #142b4d;
+  margin: 8px 0 12px;
+}
+
+.event-card p {
+  color: #68788d;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+.event-steps {
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: #40536b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.event-note {
+  max-width: 1200px;
+  margin: 24px auto 60px;
+  padding: 14px 18px;
+  background: #fff8e8;
+  border: 1px solid #f4dfaa;
+  border-radius: 10px;
+  color: #80601b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ===== 이벤트 개별 표시 기능 ===== */
+
+/* 선택되지 않은 이벤트 숨김 */
+.event-card.is-hidden {
+  display: none;
+}
+
+/* 이벤트 하나만 표시할 때 가운데 배치 */
+.event-cards.single-event {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.event-cards.single-event .event-card {
+  max-width: 850px;
+  width: 100%;
+}
+
+/* 모바일 반응형 */
+
+@media(max-width:700px) {
+
+  .event-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card img {
+    height: 210px;
+  }
+
+  .event-card-body {
+    padding: 19px;
+  }
+
+  .event-intro h2 {
+    font-size: 22px;
+  }
+
+  .event-cards.single-event .event-card {
+    max-width: 100%;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== 공지 배너 ===== -->
+
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+
+  <a href="rebranding.html" class="announcement-link">
+    <span class="announcement-tag">NEW</span>
+    <span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span>
+    <span class="announcement-more">자세히 보기 ↗</span>
+  </a>
+
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+
+</div>
+
+
+<!-- ===== 상단 네비게이션 ===== -->
+
+<header class="site-header">
+
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img
+      src="assets/branding/hero.png"
+      alt="동래읍성역사문화축제 로고"
+      class="brand-logo"
+    >
+  </a>
+
+  <nav class="main-nav" id="mainNav">
+
+    <div class="nav-item">
+      <a href="index.html">홈</a>
+    </div>
+
+    <div class="nav-item">
+      <a href="about.html">축제 소개</a>
+
+      <div class="sub-menu">
+        <a href="about.html">축제 개요</a>
+        <a href="about_story.html">동래읍성 이야기</a>
+        <a href="about_history.html">축제 연혁</a>
+        <a href="about_leaflet.html">축제 리플릿</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="programs.html">프로그램</a>
+
+      <div class="sub-menu">
+        <a href="programs.html">전체 프로그램</a>
+        <a href="experience.html">전통문화 체험</a>
+        <a href="performance.html">공연 및 퍼레이드</a>
+        <a href="course.html">추천 코스</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="rebranding.html">리브랜딩</a>
+
+      <div class="sub-menu">
+        <a href="rebranding.html">리브랜딩 콘셉트</a>
+        <a href="rebranding_character.html">캐릭터 디자인</a>
+        <a href="rebranding_logo.html">로고 디자인</a>
+        <a href="rebranding_system.html">디자인 시스템</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="media.html">홍보 콘텐츠</a>
+
+      <div class="sub-menu">
+        <a href="media.html">홍보 디자인</a>
+        <a href="video.html">영상 콘텐츠</a>
+      </div>
+    </div>
+
+    <!-- 이벤트 메뉴 -->
+
+    <div class="nav-item">
+      <a href="events.html">이벤트</a>
+
+      <div class="sub-menu">
+        <a href="events.html#online">온라인 참여 이벤트</a>
+        <a href="events.html#onsite">현장 체험 이벤트</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="visit.html">방문 안내</a>
+
+      <div class="sub-menu">
+        <a href="visit.html">오시는 길</a>
+        <a href="visit_map.html">축제장 안내도</a>
+      </div>
+    </div>
+
+  </nav>
+
+
+  <div class="header-tools">
+
+    <button class="lang-btn active" data-lang="ko">KR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+
+    <a class="header-cta" href="booking.html">방문 안내 →</a>
+
+  </div>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="메뉴 열기"
+    aria-expanded="false"
+  >☰</button>
+
+</header>
+
+
+<!-- ===== 이벤트 메인 ===== -->
+
+<main class="standard-page">
+
+  <section class="sub-header">
+
+    <p class="eyebrow">FESTIVAL EVENT</p>
+
+    <h1>축제에 참여하고, 추억을 남기다</h1>
+
+    <p>온라인에서도 축제 현장에서도 동래의 가을을 함께 즐겨보세요.</p>
+
+  </section>
+
+
+  <!-- 이벤트 소개 -->
+
+  <div class="event-intro">
+
+    <h2>함께할수록 더 즐거운 축제</h2>
+
+    <p>
+      나만의 축제 순간을 공유하고, 현장에서 다양한 체험에 참여해 보세요.
+      아래 이벤트는 홈페이지 구성 예시이며 실제 운영 일정과 참여 조건은
+      추후 확정 내용으로 교체할 수 있습니다.
+    </p>
+
+  </div>
+
+
+  <!-- ===== 이벤트 카드 ===== -->
+
+  <div class="standard-content event-cards">
+
+
+    <!-- 온라인 참여 이벤트 -->
+
+    <section class="event-card" id="online">
+
+      <img
+        src="assets/programs/hip.JPG"
+        alt="동래읍성 축제 캐릭터 이미지"
+      >
+
+      <div class="event-card-body">
+
+        <span class="event-label">ONLINE PARTICIPATION</span>
+
+        <h2>온라인 참여 이벤트</h2>
+
+        <p>
+          축제에서 만난 가장 특별한 순간을 사진이나 영상으로 기록하고,
+          지정 해시태그와 함께 SNS에 공유해 보세요.
+          참여자 중 선정된 분께 축제 기념 굿즈를 선물하는 이벤트를
+          상상해 볼 수 있습니다.
+        </p>
+
+        <div class="event-steps">
+
+          <strong>참여 방법</strong><br>
+
+          01. 축제 공식 계정 팔로우<br>
+          02. 축제 사진 또는 영상 업로드<br>
+          03. 지정 해시태그와 계정 태그<br>
+
+          <strong>교체 항목:</strong>
+          참여 기간 · 해시태그 · 경품 · 당첨자 발표일
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 현장 체험 이벤트 -->
+
+    <section class="event-card" id="onsite">
+
+      <img
+        src="assets/programs/cheheum2.JPG"
+        alt="동래읍성 축제 공연 현장 이미지"
+      >
+
+      <div class="event-card-body">
+
+        <span class="event-label">ON-SITE EXPERIENCE</span>
+
+        <h2>현장 체험 이벤트</h2>
+
+        <p>
+          축제장을 둘러보며 미션을 수행하고,
+          전통문화 체험과 포토존에서 나만의 추억을 만들어 보세요.
+          미션을 완료하면 기념 엽서나 캐릭터 굿즈를 받을 수 있는
+          참여형 이벤트 예시입니다.
+        </p>
+
+        <div class="event-steps">
+
+          <strong>참여 방법</strong><br>
+
+          01. 안내 부스에서 미션 카드 수령<br>
+          02. 지정 장소에서 체험 및 인증<br>
+          03. 완료 스탬프를 모아 안내 부스 방문<br>
+
+          <strong>교체 항목:</strong>
+          운영 장소 · 운영 시간 · 미션 내용 · 증정품
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+ 
+  </p>
+
+</main>
+
+
+<!-- ===== 하단 ===== -->
+
+<footer class="site-footer">
+  <p>동래읍성역사문화축제</p>
+</footer>
+
+
+<!-- 기존 공통 JavaScript -->
+
+<script src="script.js" defer></script>
+
+
+<!-- ===== 이벤트 선택 기능 ===== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(".event-card");
+  const container = document.querySelector(".event-cards");
+
+  function showSelectedEvent() {
+
+    const hash = window.location.hash;
+
+    // 기본값: 이벤트 카드 두 개 모두 표시
+
+    cards.forEach(function (card) {
+      card.classList.remove("is-hidden");
+    });
+
+    container.classList.remove("single-event");
+
+    // 온라인 또는 현장 이벤트 선택
+
+    if (hash === "#online" || hash === "#onsite") {
+
+      cards.forEach(function (card) {
+
+        if ("#" + card.id !== hash) {
+          card.classList.add("is-hidden");
+        }
+
+      });
+
+      // 카드 하나만 가운데 표시
+
+      container.classList.add("single-event");
+
+      // 선택한 이벤트 위치로 이동
+
+      requestAnimationFrame(function () {
+
+        const selectedCard = document.querySelector(hash);
+
+        if (selectedCard) {
+          selectedCard.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+
+      });
+
+    }
+
+  }
+
+  // 페이지 처음 열었을 때 실행
+
+  showSelectedEvent();
+
+  // 메뉴 클릭으로 주소 해시가 변경될 때 실행
+
+  window.addEventListener("hashchange", showSelectedEvent);
+
+});
+
+</script>
+
+
+</body>
+</html>

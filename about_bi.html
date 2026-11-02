@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동래읍성 이야기 - 동래읍성역사문화축제</title>
+<!-- 기존에 쓰시던 CSS 파일 연결 -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  /* ===== 상단 브랜드 ===== */
+  .brand { display: inline-flex; align-items: center; gap: 0; text-decoration: none; line-height: 0; }
+  .brand-logo { height: 40px; width: auto; display: block; }
+
+  /* ===== 메인 메뉴 ===== */
+  .site-header {
+    height: 80px;
+    background: #071d38;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .main-nav { display: flex; align-items: center; gap: 20px; }
+  .main-nav a { color: #fff; text-decoration: none; font-size: 17px; font-weight: 500; }
+  .main-nav a:hover { color: #e6bb62; }
+  .sub-menu { display: none; position: absolute; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-direction: column; gap: 10px; }
+  .nav-item { position: relative; }
+  .nav-item:hover .sub-menu { display: flex; }
+  .sub-menu a { color: #333; font-size: 15px; }
+  
+  /* 헤더 우측 버튼 */
+  .header-tools { display: flex; gap: 15px; align-items: center; }
+  .header-tools a { color: #fff; text-decoration: none; }
+  .header-cta { background: #e92d35; padding: 10px 20px; border-radius: 20px; font-weight: bold; }
+
+  /* ===== 콘텐츠 영역 스타일 ===== */
+  .content-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+  .content-title { font-size: 32px; color: #1a365d; font-weight: 800; margin-bottom: 10px; }
+  .content-subtitle { font-size: 16px; color: #666; margin-bottom: 40px; }
+  
+  .flex-layout { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+  .image-box { flex: 1 1 50%; min-width: 300px; }
+  .image-box img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: block; }
+  
+  .text-box { flex: 1 1 40%; min-width: 300px; }
+  .text-box h3 { font-size: 24px; color: #082345; font-weight: 700; margin-bottom: 20px; }
+  .text-box p { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; word-break: keep-all; }
+
+  /* 모바일 대응 */
+  @media (max-width: 768px) {
+    .site-header { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+    .main-nav { flex-wrap: wrap; justify-content: center; }
+    .flex-layout { flex-direction: column; }
+    .image-box, .text-box { flex: 1 1 100%; }
+  }
+</style>
+<link rel="stylesheet" href="site-fixes.css"></head>
+<body>
+
+<!-- 상단 헤더 영역 -->
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+  
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+    </div></div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+    </div></div>
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+    </div></div>
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a>
+    </div></div>
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+    </div></div>
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+    </div></div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+
+<!-- 메인 콘텐츠 영역 -->
+<main>
+  <section class="content-section">
+    
+    <!-- 제목 -->
+    <h2 class="content-title">동래읍성 이야기</h2>
+    <p class="content-subtitle">동래읍성의 숨겨진 역사와 가치를 만나보세요.</p>
+
+    <!-- 이미지와 텍스트 배치 -->
+    <div class="flex-layout">
+      
+      <!-- 👇 1-2.jpg 이미지가 들어가는 곳 -->
+      <div class="image-box">
+        <img src="assets/festival/1-2.jpg" alt="동래읍성 전경">
+      </div>
+
+      <!-- 👇 설명 텍스트가 들어가는 곳 -->
+      <div class="text-box">
+        <h3>성곽에 깃든 역사</h3>
+        <p>
+          동래읍성은 조선 시대 부산 지역의 중심을 지키던 중요한 성곽입니다. 
+          임진왜란 당시 동래성 전투가 벌어졌던 역사적인 현장이기도 합니다.
+        </p>
+        <p>
+          현재는 아름다운 산책로와 함께 과거의 숨결을 느낄 수 있는 문화유산으로 자리 잡고 있으며, 
+          축제 기간에는 다채로운 프로그램이 펼쳐집니다.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<!-- 푸터 영역 (간단하게) -->
+<footer style="background: #061c38; color: #fff; text-align: center; padding: 30px; font-size: 14px;">
+  <p>Copyright © 동래읍성역사문화축제. All rights reserved.</p>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

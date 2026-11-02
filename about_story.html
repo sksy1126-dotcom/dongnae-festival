@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동래읍성 이야기 - 동래읍성역사문화축제</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  /* ===== 상단 브랜드 ===== */
+  .brand { display: inline-flex; align-items: center; gap: 0; text-decoration: none; line-height: 0; }
+  .brand-logo { height: 40px; width: auto; display: block; }
+
+  /* ===== 메인 메뉴 ===== */
+  .site-header {
+    height: 80px;
+    background: #071d38;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .main-nav { display: flex; align-items: center; gap: 20px; }
+  .main-nav a { color: #fff; text-decoration: none; font-size: 17px; font-weight: 500; }
+  .main-nav a:hover { color: #e6bb62; }
+  .sub-menu { display: none; position: absolute; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-direction: column; gap: 10px; z-index: 999; }
+  .nav-item { position: relative; }
+  .nav-item:hover .sub-menu { display: flex; }
+  .sub-menu a { color: #333; font-size: 15px; white-space: nowrap; }
+  
+  /* 헤더 우측 버튼 */
+  .header-tools { display: flex; gap: 15px; align-items: center; }
+  .header-tools a { color: #fff; text-decoration: none; }
+  .header-cta { background: #e92d35; padding: 10px 20px; border-radius: 20px; font-weight: bold; }
+
+  /* =========================================
+     🎯 콘텐츠 영역 (축제 개요와 동일한 레이아웃)
+     ========================================= */
+  .overview-wrapper {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcfbf9; /* 축제 개요와 동일한 배경색 */
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  .overview-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 50px; /* 축제 개요와 동일한 간격 */
+    align-items: center;
+  }
+
+  /* 👇 왼쪽 이미지 영역 (45% 비율) */
+  .overview-image {
+    flex: 0 0 45%;
+    max-height: 70vh;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  .overview-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+    background: #fff;
+  }
+
+  /* 👇 오른쪽 텍스트 영역 */
+  .overview-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .overview-title {
+    font-size: 40px; /* 축제 개요와 동일한 크기 */
+    color: #1a365d;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .overview-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    word-break: keep-all;
+    line-height: 1.5;
+  }
+
+  /* 하이라이트 박스 (축제 개요와 동일) */
+  .overview-highlight {
+    font-size: 22px;
+    font-weight: 800;
+    color: #082345;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    word-break: keep-all;
+    background: #f4f0e7;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #e92d35;
+  }
+
+  /* 텍스트 박스 */
+  .overview-text-box h3 {
+    font-size: 24px;
+    color: #082345;
+    font-weight: 700;
+    margin: 0 0 15px;
+  }
+
+  .overview-text-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+    word-break: keep-all;
+  }
+
+  /* =========================================
+     📱 모바일 및 태블릿 반응형
+     ========================================= */
+  @media (max-width: 1024px) {
+    .overview-wrapper { min-height: auto; padding: 40px 20px; }
+    .overview-container { flex-direction: column; gap: 30px; }
+    .overview-image { flex: 1 1 100%; width: 100%; max-height: none; }
+    .overview-image img { max-height: none; height: auto; }
+    .overview-title { font-size: 32px; text-align: center; }
+    .overview-subtitle { text-align: center; }
+    .overview-highlight { font-size: 18px; }
+  }
+
+  @media (max-width: 768px) {
+    .site-header { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+    .main-nav { flex-wrap: wrap; justify-content: center; }
+    .overview-title { font-size: 28px; }
+    .overview-text-box p { font-size: 15px; }
+  }
+</style>
+<link rel="stylesheet" href="site-fixes.css"></head>
+<body>
+
+<!-- 상단 헤더 영역 -->
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+  
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+    </div></div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+    </div></div>
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+    </div></div>
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a>
+    </div></div>
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+    </div></div>
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+    </div></div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+
+<!-- 메인 콘텐츠 영역 -->
+<main>
+  <div class="overview-wrapper">
+    <div class="overview-container">
+      
+      <!-- 👇 왼쪽 이미지 영역 (1-2.jpg) -->
+      <div class="overview-image">
+        <img src="assets/festival/1-2.jpg" alt="동래읍성 전투 이야기 만화">
+      </div>
+
+      <!-- 👇 오른쪽 텍스트 영역 -->
+      <div class="overview-text">
+        <h2 class="overview-title">동래읍성 이야기</h2>
+        <p class="overview-subtitle">동래읍성의 숨겨진 역사와 가치를 만나보세요.</p>
+        
+        <!-- 하이라이트 박스 -->
+        <div class="overview-highlight">
+          동래읍성은 조선 시대 부산 지역의 중심을 지키던 중요한 성곽입니다. 임진왜란 당시 동래성 전투가 벌어졌던 역사적인 현장이기도 합니다.
+        </div>
+
+        <div class="overview-text-box">
+          <h3>성곽에 깃든 역사</h3>
+          <p>
+            현재는 아름다운 산책로와 함께 과거의 숨결을 느낄 수 있는 문화유산으로 자리 잡고 있으며, 축제 기간에는 다채로운 프로그램이 펼쳐집니다.
+          </p>
+          <p>
+            동래읍성의 가치를 기리고 그 의미를 되새기기 위해 매년 많은 방문객들이 이곳을 찾고 있습니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>

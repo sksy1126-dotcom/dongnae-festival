@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영상 콘텐츠 - 동래읍성역사문화축제</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  /* ===== 서브 헤더 (타이틀 영역) ===== */
+  .sub-header { 
+    background: #1a365d; 
+    color: #fff; 
+    padding: 80px 20px; 
+    text-align: center; 
+  }
+  .sub-header h1 { font-size: 40px; margin: 0 0 10px; font-weight: 800; }
+  .sub-header p { font-size: 16px; color: #d4deeb; margin: 0; }
+
+  /* ===== 콘텐츠 영역 ===== */
+  .sub-content { 
+    max-width: 1200px; 
+    margin: 60px auto; 
+    padding: 0 20px; 
+  }
+  
+  /* 영상 6개를 균형 있게 보여주는 그리드 */
+  .media-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+  .video-item { min-width:0; }
+  .video-item h3 { margin:12px 2px 5px; color:#142b4d; font-size:17px; }
+  .video-item p { margin:0 2px; color:#718096; font-size:13px; line-height:1.6; }
+  .video-card img { width:100%; height:100%; object-fit:cover; display:block; }
+  .video-placeholder { aspect-ratio:16/9; width:100%; border-radius:12px; background:linear-gradient(135deg,#142b4d,#243f68); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; padding:18px; box-sizing:border-box; border:1px dashed #8da2bd; }
+  .video-placeholder-icon { width:48px; height:48px; border:2px solid #fff; border-radius:50%; display:grid; place-items:center; padding-left:3px; font-size:18px; }
+  .video-placeholder strong { font-size:15px; }
+  .video-placeholder small { color:#d4deeb; font-size:11px; line-height:1.5; }
+  .video-link { display:block; position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:12px; background:#142b4d; }
+  .video-link img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
+  .video-link:hover img { transform:scale(1.04); }
+  .video-link .play-icon { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#fff; background:#d92f3b; border-radius:50%; width:58px; height:58px; display:grid; place-items:center; font-size:22px; padding-left:4px; }
+  
+  /* 영상 카드 디자인 (button 태그용) */
+  .video-card {
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* 비디오 태그 스타일 */
+  .video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* 클릭 시 모달이 뜨도록 마우스 이벤트 무시 */
+  }
+  
+  /* 재생 아이콘 */
+  .video-card .play-icon {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    background: rgba(0,0,0,0.6);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding-left: 4px; /* 아이콘 중앙 정렬 보정 */
+    pointer-events: none;
+  }
+
+  /* ===== 모바일 반응형 ===== */
+  @media (max-width: 900px) { .media-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 600px) { .media-grid { grid-template-columns:1fr; } .sub-header h1 { font-size:32px; } }
+</style>
+<link rel="stylesheet" href="site-fixes.css"></head>
+<body>
+
+<!-- 상단 헤더 -->
+<div class="announcement-bar" role="region" aria-label="새소식 공지">
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+  <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+</div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="홈으로">
+    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
+  </a>
+  
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-item"><a href="index.html">홈</a></div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+    </div></div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+    </div></div>
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+    </div></div>
+   <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+  <a href="media.html">홍보 디자인</a>
+  <a href="video.html">영상 콘텐츠</a>
+  <a href="gallery.html">포토 갤러리</a>
+</div></div>
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+    </div></div>
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+    </div></div>
+  </nav>
+
+  <div class="header-tools">
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+    <button class="search-btn" aria-label="검색">⌕</button>
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+</header>
+
+<!-- 영상 콘텐츠 전용 타이틀 -->
+<div class="sub-header"><h1>영상 콘텐츠</h1><p>동래읍성역사문화축제의 공연과 현장을 영상으로 만나보세요.</p></div>
+<section class="sub-content" id="video">
+  <div class="section-heading"><p class="eyebrow">FESTIVAL FILM</p><h2>영상으로 만나는 동래읍성</h2><p>축제의 대표 장면과 현장의 생생한 순간을 영상으로 소개합니다.</p></div>
+  <div class="media-grid">
+    <article class="video-item"><button class="video-card" data-open-video="assets/videos/pangpang.mp4" aria-label="축제 하이라이트 재생"><video src="assets/videos/pangpang.mp4" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>01. 축제 하이라이트</h3><p>축제의 분위기와 주요 장면을 한눈에 소개합니다.</p></article>
+    <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance2.mp4" aria-label="전통 공연과 퍼레이드 재생"><video src="assets/videos/dance2.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>02. 전통 공연과 퍼레이드</h3><p>전통 공연과 거리 퍼레이드의 역동적인 순간.</p></article>
+    <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance3.mp4" aria-label="야간 풍경 재생"><video src="assets/videos/dance3.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>03. 조선힙쟁이 댄스배틀</h3><p>끼와 열정의 힙쟁이들이 모인 화려한 댄스배틀의 시간.</p></article>
+        <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance4.mp4" aria-label="동래읍성역사이야기"><video src="assets/videos/dance4.mp4" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>>04. 동래읍성의 역사 이야기</h3><p>동래읍성의 역사와 축제의 유래를 소개합니다.</p></article>
+        <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance5.mp4" aria-label="공연과 현장스케치"><video src="assets/videos/dance5.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>05. 공연과 현장 스케치</h3><p>공연과 관람객의 생생한 현장을 담습니다.</p></article>
+        <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance6.mp4" aria-label="야간 풍경 재생"><video src="assets/videos/dance6.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>06. 축제의 밤과 피날레</h3><p>야간 공연과 축제의 마지막 순간을 소개합니다.</p></article>
+        <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance7.mp4" aria-label="야간 풍경 재생"><video src="assets/videos/dance7.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>07.역사와 미디어아트와의 만남</h3><p>동래성 전투재현 실경뮤지컬.</p></article>
+         <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance8.mp4" aria-label="야간 풍경 재생"><video src="assets/videos/dance8.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>08.역사와 미디어아트와의 만남</h3><p>오페라 동래로 온 춘향이.</p></article>
+          <article class="video-item"><button class="video-card" data-open-video="assets/videos/dance8.mp4" aria-label="야간 풍경 재생"><video src="assets/videos/dance8.mp4#t=0.1" muted playsinline preload="metadata"></video><span class="play-icon">▶</span></button><h3>09.역사와 미디어아트와의 만남</h3><p>조형물을 아트로 재현한 공연.</p></article>
+
+  </div>
+</section>
+

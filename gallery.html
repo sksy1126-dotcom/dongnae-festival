@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>포토 갤러리 - 동래읍성역사문화축제</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="site-fixes.css">
+<style>
+.photo-gallery-page{min-height:60vh;background:#fff;padding:76px 24px 100px}
+.photo-gallery-inner{width:min(1200px,100%);margin:0 auto}
+.photo-gallery-heading{margin-bottom:32px}
+.photo-gallery-heading .eyebrow{color:#d9343e;font-size:12px;font-weight:800;letter-spacing:.16em;margin:0 0 12px}
+.photo-gallery-heading h1{font-size:clamp(30px,4vw,44px);line-height:1.2;letter-spacing:-.04em;color:#142b4d;margin:0 0 12px}
+.photo-gallery-heading p{color:#718096;line-height:1.8;margin:0}
+.photo-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.photo-card{position:relative;display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#edf1f5;cursor:pointer;text-align:left}
+.photo-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.photo-card:hover img{transform:scale(1.045)}
+.photo-number{position:absolute;left:13px;bottom:13px;padding:6px 10px;border-radius:5px;background:rgba(10,27,49,.78);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em}
+.photo-lightbox{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:30px;background:rgba(3,11,24,.94)}
+.photo-lightbox.open{display:flex}
+.photo-lightbox img{max-width:min(92vw,1400px);max-height:84vh;object-fit:contain;border-radius:8px}
+.photo-lightbox-close{position:absolute;top:18px;right:26px;border:0;background:transparent;color:#fff;font-size:42px;cursor:pointer}
+@media(max-width:800px){.photo-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo-gallery-page{padding:54px 18px 72px}}
+@media(max-width:480px){.photo-gallery-grid{grid-template-columns:1fr}.photo-card{aspect-ratio:16/10}}
+</style>
+</head>
+<body>
+<header class="site-header">
+
+  <a class="brand" href="index.html" aria-label="홈">
+  <img src="assets/branding/hero.png"
+       alt="동래읍성역사문화축제 캐릭터"
+       class="brand-logo">
+
+  <span class="brand-text">
+    <strong>DONGNAE EUPSEONG</strong>
+    <strong>HISTORICAL CULTURAL FESTIVAL</strong>
+  </span>
+</a>
+
+
+
+  <nav class="main-nav" id="mainNav">
+
+    <div class="nav-item"><a href="index.html">홈</a></div>
+
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
+
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
+
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+
+      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a><a href="gallery.html">포토 갤러리</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+
+    </div></div>
+
+  </nav>
+
+
+
+  <div class="header-tools">
+
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+
+    <button class="search-btn" aria-label="검색">⌕</button>
+
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+
+  </div>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+
+</header>
+<main class="photo-gallery-page">
+  <div class="photo-gallery-inner">
+    <div class="photo-gallery-heading">
+      <p class="eyebrow">PHOTO GALLERY</p>
+      <h1>축제의 순간을 기록하다</h1>
+      <p>동래읍성역사문화축제의 다채로운 현장을 사진으로 만나보세요.</p>
+    </div>
+    <div class="photo-gallery-grid">
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall1.jpg" aria-label="축제 사진 1 크게 보기">
+        <img src="assets/photogallery/gall1.jpg" alt="동래읍성역사문화축제 사진 1" loading="lazy">
+        <span class="photo-number">01</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall2.jpg" aria-label="축제 사진 2 크게 보기">
+        <img src="assets/photogallery/gall2.jpg" alt="동래읍성역사문화축제 사진 2" loading="lazy">
+        <span class="photo-number">02</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall3.jpg" aria-label="축제 사진 3 크게 보기">
+        <img src="assets/photogallery/gall3.jpg" alt="동래읍성역사문화축제 사진 3" loading="lazy">
+        <span class="photo-number">03</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall4.jpg" aria-label="축제 사진 4 크게 보기">
+        <img src="assets/photogallery/gall4.jpg" alt="동래읍성역사문화축제 사진 4" loading="lazy">
+        <span class="photo-number">04</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall5.jpg" aria-label="축제 사진 5 크게 보기">
+        <img src="assets/photogallery/gall5.jpg" alt="동래읍성역사문화축제 사진 5" loading="lazy">
+        <span class="photo-number">05</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall6.jpg" aria-label="축제 사진 6 크게 보기">
+        <img src="assets/photogallery/gall6.jpg" alt="동래읍성역사문화축제 사진 6" loading="lazy">
+        <span class="photo-number">06</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall7.jpg" aria-label="축제 사진 7 크게 보기">
+        <img src="assets/photogallery/gall7.jpg" alt="동래읍성역사문화축제 사진 7" loading="lazy">
+        <span class="photo-number">07</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall8.jpg" aria-label="축제 사진 8 크게 보기">
+        <img src="assets/photogallery/gall8.jpg" alt="동래읍성역사문화축제 사진 8" loading="lazy">
+        <span class="photo-number">08</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall9.jpg" aria-label="축제 사진 9 크게 보기">
+        <img src="assets/photogallery/gall9.jpg" alt="동래읍성역사문화축제 사진 9" loading="lazy">
+        <span class="photo-number">09</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall10.jpg" aria-label="축제 사진 10 크게 보기">
+        <img src="assets/photogallery/gall10.jpg" alt="동래읍성역사문화축제 사진 10" loading="lazy">
+        <span class="photo-number">10</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall11.jpg" aria-label="축제 사진 11 크게 보기">
+        <img src="assets/photogallery/gall11.jpg" alt="동래읍성역사문화축제 사진 11" loading="lazy">
+        <span class="photo-number">11</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall12.jpg" aria-label="축제 사진 12 크게 보기">
+        <img src="assets/photogallery/gall12.jpg" alt="동래읍성역사문화축제 사진 12" loading="lazy">
+        <span class="photo-number">12</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall13.jpg" aria-label="축제 사진 13 크게 보기">
+        <img src="assets/photogallery/gall13.jpg" alt="동래읍성역사문화축제 사진 13" loading="lazy">
+        <span class="photo-number">13</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall14.jpg" aria-label="축제 사진 14 크게 보기">
+        <img src="assets/photogallery/gall14.jpg" alt="동래읍성역사문화축제 사진 14" loading="lazy">
+        <span class="photo-number">14</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall15.jpg" aria-label="축제 사진 15 크게 보기">
+        <img src="assets/photogallery/gall15.jpg" alt="동래읍성역사문화축제 사진 15" loading="lazy">
+        <span class="photo-number">15</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall16.jpg" aria-label="축제 사진 16 크게 보기">
+        <img src="assets/photogallery/gall16.jpg" alt="동래읍성역사문화축제 사진 16" loading="lazy">
+        <span class="photo-number">16</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall17.jpg" aria-label="축제 사진 17 크게 보기">
+        <img src="assets/photogallery/gall17.jpg" alt="동래읍성역사문화축제 사진 17" loading="lazy">
+        <span class="photo-number">17</span>
+      </button>
+      <button class="photo-card" type="button" data-full="assets/photogallery/gall18.jpg" aria-label="축제 사진 18 크게 보기">
+        <img src="assets/photogallery/gall18.jpg" alt="동래읍성역사문화축제 사진 18" loading="lazy">
+        <span class="photo-number">18</span>
+      </button>
+      
+    </div>
+  </div>
+</main>
+<footer class="site-footer-new">
+
+  <div class="sponsor-area">
+
+    <p class="sponsor-kicker">PARTNERS & SPONSORS</p>
+
+    <h3 class="sponsor-title">축제와 함께하는 브랜드</h3>
+
+    <div class="sponsor-logos sponsor-text-logos">
+
+      <span>부산광역시</span><span>한국관광공사</span><span>부산관광공사</span><span>동래문화원</span><span>부산광역시동래구</span>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="footer-info-area">
+
+    <div class="footer-left">
+
+      <div class="footer-logo">
+
+        <img src="assets/branding/LOGO1.svg" alt="동래읍성역사문화축제" style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 10px;">
+
+        <span>동래읍성역사축제추진위원회</span>
+
+      </div>
+
+      <div class="footer-address">
+
+        <p>(사)부산축제조직위원회 | 47813 부산광역시 동래구 충렬대로 237번길 28 2층 | 대표자: 전재수 | 사업자등록번호: 6178204474</p>
+
+        <p>운영시간 09:00~18:00 | Tel. 051-713-5000 | Fax. 051-713-5009</p>
+
+        <p>Copyright (C) 동래읍성역사문화축제. All rights reserved.</p>
+
+      </div>
+
+    </div>
+
+    <div class="footer-right-links">
+
+      <a href="#privacy">개인정보처리방침</a>
+
+      <a href="#sitemap">이메일무단수집거부</a>
+
+    </div>
+
+  </div>
+
+</footer>
+<div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+  <button class="photo-lightbox-close" type="button" aria-label="닫기">×</button>
+  <img src="" alt="확대된 축제 사진">
+</div>
+<script>
+(() => {
+  const box = document.getElementById('photoLightbox');
+  const preview = box.querySelector('img');
+  const close = () => { box.classList.remove('open'); box.setAttribute('aria-hidden','true'); preview.src=''; };
+  document.querySelectorAll('.photo-card').forEach(card => card.addEventListener('click', () => {
+    preview.src = card.dataset.full;
+    preview.alt = card.querySelector('img').alt;
+    box.classList.add('open'); box.setAttribute('aria-hidden','false');
+  }));
+  box.querySelector('button').addEventListener('click', close);
+  box.addEventListener('click', e => { if(e.target === box) close(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
