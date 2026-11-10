@@ -226,15 +226,15 @@ button { font: inherit; cursor: pointer; }
    퀵 링크 및 유틸리티
    ========================================= */
 .quick-wrap {
-  width: 95%;
-  max-width: 1420px;
-  margin: -32px auto 0;
-  position: relative;
-  z-index: 4;
-  display: grid;
-  grid-template-columns: 1fr 132px;
-  gap: 9px;
-  padding: 0 0 18px;
+    width: calc(100% - 40px);
+    max-width: 1100px;
+    margin: -32px auto 0;
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0 0 18px;
+    box-sizing: border-box;
 }
 
 .quick-links {
@@ -1175,4 +1175,70 @@ body.modal-open { overflow: hidden; }
         font-size: 12px;
         white-space: normal;
     }
+}
+/* 홍보 콘텐츠 이미지 카드 */
+.media-design-grid {
+  max-width: 1040px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.media-card {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #dce2e9;
+  text-decoration: none;
+  color: #19365c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.media-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  background: #f1f2f4;
+  display: block;
+}
+
+.media-card-info {
+  padding: 16px 18px 18px;
+}
+
+.media-card-info span {
+  color: #161e8b;
+  font-size: 13px;
+}
+
+.media-card-info h3 {
+  margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.media-card-info p {
+   margin: 0 0 10px;
+    font-size: 10px;
+    color: #77869a;
+}
+
+.media-card-info small {
+  display: block;
+  margin-top: 16px;
+  color: #19365c;
+}
+
+@media (max-width: 768px) {
+  .media-design-grid {
+    grid-template-columns: 1fr;
+    padding: 0 18px;
+  }
 }
