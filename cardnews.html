@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카드뉴스 디자인 | 동래읍성역사문화축제</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background: #faf8f2;
+    color: #10213d;
+}
+
+header {
+    height: 72px;
+    background: #0e203c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero {
+    background: #20395f;
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 13px;
+    color: #dce4ef;
+}
+
+.section {
+    max-width: 1180px;
+    margin: auto;
+    padding: 55px 25px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cbd2dc;
+    padding-bottom: 16px;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 23px;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: #8490a0;
+}
+
+/* 통합 상세 이미지 */
+.detail-image {
+   background: white;
+    border: 1px solid #e1e4e9;
+    padding: 10px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* 개별 카드뉴스 */
+.english-section {
+    background: #f0eee7;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card-item {
+    background: white;
+    padding: 10px;
+    border: 1px solid #e1e4e9;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.card-item:hover {
+    transform: translateY(-4px);
+}
+
+.card-item img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    display: block;
+    background: #f4f2ed;
+}
+
+.card-item p {
+    padding: 13px 5px 5px;
+    font-size: 13px;
+    color: #20395f;
+}
+
+/* 이미지 확대 */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5, 15, 30, 0.94);
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+footer {
+    background: #0e203c;
+    color: #cbd2dc;
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .section {
+        padding: 40px 15px;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="media.html">DONGNAE FESTIVAL</a>
+    <a href="media.html">← 홍보 콘텐츠</a>
+</header>
+
+<section class="hero">
+    <h1>카드뉴스 디자인</h1>
+    <p>국문·영문 SNS 카드뉴스 디자인</p>
+</section>
+
+<!-- 02. 국문·영문 통합 상세 이미지 -->
+<section class="section">
+    <div class="section-title">
+        <h2>전체 디자인 상세</h2>
+        <span>DESIGN OVERVIEW</span>
+    </div>
+
+    <div class="detail-image">
+        <img
+            src="assets/media/cardnews/cardnews.png"
+            alt="카드뉴스 국문 영문 통합 상세 이미지"
+            onclick="openModal(this.src)">
+    </div>
+</section>
+
+<!-- 03. 국문 개별 이미지 -->
+<section class="section">
+    <div class="section-title">
+        <h2>카드뉴스 국문 버전</h2>
+        <span>KOREAN VERSION</span>
+    </div>
+
+    <div class="card-grid" id="koreanCards"></div>
+</section>
+
+<!-- 04. 영문 개별 이미지 -->
+<section class="english-section">
+    <section class="section">
+        <div class="section-title">
+            <h2>카드뉴스 영문 버전</h2>
+            <span>ENGLISH VERSION</span>
+        </div>
+
+        <div class="card-grid" id="englishCards"></div>
+    </section>
+</section>
+
+<!-- 확대 보기 -->
+<div class="modal" id="imageModal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImage" src="" alt="카드뉴스 확대 이미지">
+</div>
+
+<footer>
+    DONGNAE EUPSEONG HISTORICAL FESTIVAL
+</footer>
+
+<script>
+function createCards(containerId, folder, start) {
+    const container = document.getElementById(containerId);
+
+    for (let i = 0; i < 6; i++) {
+        const number = start + i;
+
+        const path =
+            `assets/media/cardnews/${folder}/Instagram%20post%20-%20${number}.png`;
+
+        const item = document.createElement("div");
+        item.className = "card-item";
+
+        const img = document.createElement("img");
+        img.src = path;
+        img.alt = `${folder} 카드뉴스 ${i + 1}`;
+        img.loading = "lazy";
+
+        img.onclick = () => openModal(path);
+
+        img.onerror = () => {
+            img.alt = "이미지 파일 경로를 확인해 주세요.";
+        };
+
+        const caption = document.createElement("p");
+        caption.textContent =
+            `${String(i + 1).padStart(2, "0")} · CARD NEWS`;
+
+        item.appendChild(img);
+        item.appendChild(caption);
+        container.appendChild(item);
+    }
+}
+
+createCards("koreanCards", "korean", 1);
+createCards("englishCards", "english", 7);
+
+function openModal(src) {
+    document.getElementById("modalImage").src = src;
+    document.getElementById("imageModal").classList.add("active");
+}
+
+function closeModal() {
+    document.getElementById("imageModal").classList.remove("active");
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
+
+</body>
+</html>
