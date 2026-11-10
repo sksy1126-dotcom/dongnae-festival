@@ -1,485 +1,1130 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>홍보 디자인 - 동래읍성역사문화축제</title>
+
+<title>동래읍성역사문화축제</title>
 
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="responsive.css">
-<link rel="stylesheet" href="site-fixes.css">
 
 <style>
-/* ===== 서브 헤더 ===== */
-.sub-header {
-  background: #1a365d;
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-}
-.sub-header h1 {
-  font-size: 40px;
-  margin: 0 0 10px;
-  font-weight: 800;
-}
-.sub-header p {
-  font-size: 16px;
-  color: #d4deeb;
-  margin: 0;
-}
 
-/* ===== 공통 콘텐츠 영역 ===== */
-.sub-content {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+  /* ===== 상단 브랜드 ===== */
 
-/* ===== 홍보 디자인 ===== */
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-.video-item { min-width: 0; }
-.video-item h3 {
-  margin: 12px 2px 5px;
-  color: #142b4d;
-  font-size: 17px;
-}
-.video-item p {
-  margin: 0 2px;
-  color: #718096;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.video-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.video-placeholder {
-  aspect-ratio: 16/9;
-  width: 100%;
-  border-radius: 12px;
-  background: linear-gradient(135deg,#142b4d,#243f68);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
-  padding: 18px;
-  box-sizing: border-box;
-  border: 1px dashed #8da2bd;
-}
-.video-placeholder-icon {
-  width: 48px;
-  height: 48px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  padding-left: 3px;
-  font-size: 18px;
-}
-.video-placeholder strong { font-size: 15px; }
-.video-placeholder small {
-  color: #d4deeb;
-  font-size: 11px;
-  line-height: 1.5;
-}
-.video-link {
-  display: block;
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #142b4d;
-}
-.video-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .3s;
-}
-.video-link:hover img { transform: scale(1.04); }
+  .brand { display: inline-flex; align-items: center; gap: 0; text-decoration: none; line-height: 0; }
 
-.video-card {
-  position: relative;
-  background: #000;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 16/9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-  border: none;
-  padding: 0;
-}
-.video-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,.2);
-}
-.video-card video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-.video-card .play-icon {
-  position: absolute;
-  color: #fff;
-  font-size: 24px;
-  background: rgba(0,0,0,.6);
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  padding-left: 4px;
-  pointer-events: none;
-}
+  .brand-logo { height: 40px; width: auto; display: block; }
 
-/* ===== 포토갤러리 ===== */
-.photo-gallery-section {
-  max-width: 1200px;
-  margin: 100px auto 90px;
-  padding: 0 20px;
-}
+  .footer-brand img { height: 36px; width: auto; display: block; }
 
-.gallery-heading {
-  margin-bottom: 28px;
-}
 
-.gallery-eyebrow {
-  color: #d92f3b;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .16em;
-  margin: 0 0 10px;
-}
 
-.gallery-heading h2 {
-  color: #142b4d;
-  font-size: 34px;
-  font-weight: 800;
-  margin: 0 0 10px;
-}
+  /* ===== 메인 히어로 배경 이미지 ===== */
 
-.gallery-heading > p:last-child {
-  color: #718096;
-  font-size: 15px;
-  margin: 0;
-}
+  .hero { position: relative; overflow: hidden; }
 
-/* 사진 4열 배치 */
-.photo-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 
-.photo-gallery-item {
-  display: block;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  padding: 0;
-  border: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #edf1f5;
-  cursor: pointer;
-}
 
-.photo-gallery-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .35s ease;
-}
 
-.photo-gallery-item:hover img {
-  transform: scale(1.06);
-}
+  /* ===== 리브랜딩 섹션 ===== */
 
-.photo-gallery-item::after {
-  content: "확대 보기 +";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  background: rgba(9, 27, 51, .45);
-  opacity: 0;
-  transition: opacity .25s ease;
-}
+  .rebranding-section { background: #f8f9fa; padding: 80px 20px; border-top: 1px solid #eee; }
 
-.photo-gallery-item:hover::after {
-  opacity: 1;
-}
+  .rebranding-container { max-width: 1200px; margin: 0 auto; }
 
-/* 자세히 보기 버튼 */
-.gallery-more-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 38px;
-}
+  .rebranding-header { text-align: left; margin-bottom: 40px; }
 
-.gallery-more-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-width: 190px;
-  padding: 15px 28px;
-  border: 1px solid #142b4d;
-  border-radius: 40px;
-  color: #142b4d;
-  background: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  transition: all .25s ease;
-}
+  .rebranding-header h2 { font-size: 32px; color: #1a365d; margin: 10px 0; }
 
-.gallery-more-btn:hover {
-  color: #fff;
-  background: #142b4d;
-}
+  .rebranding-header p { color: #666; font-size: 16px; }
 
-/* ===== 갤러리 확대 모달 ===== */
-.photo-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background: rgba(4, 12, 25, .94);
-  align-items: center;
-  justify-content: center;
-  padding: 50px 70px;
-  box-sizing: border-box;
-}
+  .rebranding-header .eyebrow { justify-content: flex-start; }
 
-.photo-modal.active {
-  display: flex;
-}
 
-.photo-modal-image {
-  display: block;
-  max-width: 100%;
-  max-height: 82vh;
-  object-fit: contain;
-  border-radius: 5px;
-}
 
-.photo-modal-close,
-.photo-modal-prev,
-.photo-modal-next {
-  position: absolute;
-  border: 0;
-  color: #fff;
-  background: rgba(255,255,255,.14);
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-}
+  .rebranding-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
-.photo-modal-close {
-  top: 24px;
-  right: 30px;
-  width: 44px;
-  height: 44px;
-  font-size: 30px;
-}
+  .rebrand-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; transition: transform 0.3s ease; }
 
-.photo-modal-prev,
-.photo-modal-next {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  font-size: 30px;
-}
+  .rebrand-card:hover { transform: translateY(-5px); }
 
-.photo-modal-prev { left: 22px; }
-.photo-modal-next { right: 22px; }
+  .rebrand-card-img { width: 100%; aspect-ratio: 16 / 9; background: #eaeaea; overflow: hidden; position: relative; }
 
-.photo-modal-count {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 13px;
-  letter-spacing: .12em;
-}
+  .rebrand-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* ===== 기존 모달 ===== */
-#mediaModal { z-index: 9999; }
+  .rebrand-card-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
 
-/* ===== 반응형 ===== */
-@media (max-width: 900px) {
-  .media-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .photo-gallery-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
+  .rebrand-card-content h3 { font-size: 20px; color: #1a365d; margin: 0 0 10px; font-weight: 700; }
 
-@media (max-width: 600px) {
-  .media-grid { grid-template-columns: 1fr; }
-  .sub-header h1 { font-size: 32px; }
-  .photo-gallery-section {
-    margin: 70px auto;
-    padding: 0 16px;
-  }
-  .gallery-heading h2 { font-size: 27px; }
-  .photo-gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .rebrand-card-content p { font-size: 15px; color: #555; line-height: 1.5; margin: 0; }
+
+
+
+  @media (max-width: 768px) { .rebranding-grid { grid-template-columns: 1fr; } }
+
+
+
+  /* ===== 상단 메뉴 드롭다운 ===== */
+
+  .main-nav { display: flex; align-items: center; gap: 20px; }
+
+  .nav-item { position: relative; }
+
+  .nav-item > a { display: block; padding: 10px 0; }
+
+  .sub-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); min-width: 160px; padding: 8px 0; z-index: 999; }
+
+  .nav-item:hover .sub-menu { display: block; }
+
+  .sub-menu a { display: block; padding: 10px 20px; font-size: 14px; color: #555; white-space: nowrap; text-decoration: none; transition: background 0.2s, color 0.2s; }
+
+  .sub-menu a:hover { background: #f0f4f8; color: #1a365d; font-weight: 600; }
+
+
+
+  /* ===== ABOUT 섹션 ===== */
+
+  .about-band { display: flex; align-items: center; justify-content: flex-start; padding: 60px 20px; max-width: 1200px; margin: 0 auto; background: #fdfaf6; }
+
+  .about-copy { flex: 1; max-width: 600px; }
+
+
+
+  /* =========================================
+
+     🗺️ 지도 및 안내 정보 섹션 스타일
+
+     ========================================= */
+
+  .map-section { background: #fff; padding: 80px 20px; }
+
+  .map-inner { max-width: 1000px; margin: 0 auto; }
+
+
+
+  .info-section { margin-bottom: 60px; }
+
+  .info-section:last-child { margin-bottom: 0; }
+
+
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a365d;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     gap: 10px;
-  }
-  .photo-modal { padding: 45px 15px; }
-  .photo-modal-prev { left: 5px; }
-  .photo-modal-next { right: 5px; }
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    text-align: left !important;
+    letter-spacing: -0.5px;
 }
+
+  .section-title span { display: inline-block; width: 5px; height: 22px; background-color: #e92d35; border-radius: 2px; }
+
+
+
+  .map-container { width: 100%; height: 400px; border-radius: 16px; background-color: #eaeaea; margin-bottom: 25px; overflow: hidden; border: 1px solid #e0e0e0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; display: flex; align-items: center; justify-content: center; }
+
+  .map-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+
+
+  .info-table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+
+  .info-table th { text-align: left; width: 90px; color: #111; font-weight: 700; padding: 8px 0; vertical-align: top; white-space: nowrap; }
+
+  .info-table td { color: #555; padding: 8px 0; word-break: keep-all; }
+
+
+
+  /* =========================================
+
+     🎬 모달(팝업) 스타일
+
+     ========================================= */
+
+  .modal { position: fixed; inset: 0; z-index: 9999; background: rgba(3, 11, 24, 0.95); display: none; align-items: center; justify-content: center; padding: 40px; }
+
+  .modal.open { display: flex; }
+
+  .modal-content { max-width: 90vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; }
+
+  .modal-content video, .modal-content img { max-width: 100%; max-height: 80vh; border-radius: 8px; }
+
+  .modal-close { position: absolute; top: 20px; right: 30px; background: none; border: none; color: #fff; font-size: 40px; cursor: pointer; z-index: 10000; }
+
+  .modal-prev, .modal-next { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 50px; cursor: pointer; z-index: 10000; }
+
+  .modal-prev { left: 20px; }
+
+  .modal-next { right: 20px; }
+
+  .modal-caption { position: absolute; bottom: 20px; color: #ccc; font-size: 14px; text-align: center; width: 100%; left: 0; }
+
+
+
+/* ===== 메인페이지 리브랜딩 + 오시는 길 : 공통 1200px 정렬 ===== */
+
+/* 리브랜딩 섹션을 메인 콘텐츠와 동일한 최대 폭으로 */
+.rebranding-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+.rebranding-section .rebranding-container {
+  width: min(1200px, calc(100% - 40px)) !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+.rebranding-section .rebranding-grid {
+  width: 100%;
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+}
+.rebranding-section .rebranding-feature-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+  width: 100% !important;
+  min-width: 0;
+}
+.rebranding-section .rebrand-card-img {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  aspect-ratio: auto !important;
+}
+.rebranding-section .rebrand-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+}
+.rebranding-section .rebrand-card-content {
+  justify-content: center;
+}
+
+/* 오시는 길: 흰색 바깥 테두리 박스 제거 */
+.map-section {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff !important;
+  padding: 64px 20px 80px !important;
+}
+.map-section .map-inner {
+  width: min(1200px, 100%) !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.map-section .info-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  grid-template-areas: "image details";
+  align-items: center;
+  column-gap: 28px;
+  row-gap: 0;
+  width: 100%;
+  margin: 0 0 24px !important;
+  padding: 24px !important;
+  box-sizing: border-box;
+  color: #ffffff;
+  background: #20395f !important;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 12px;
+}
+.map-section .info-section:last-child { margin-bottom: 0 !important; }
+.map-section .info-section .section-title {
+  margin: 0 0 12px !important;
+  color: #ffffff !important;
+}
+.map-section .info-section .map-container {
+  grid-area: image;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  margin: 0 !important;
+  padding: 0;
+  box-sizing: border-box;
+  background: #20395f !important;
+  border: 1px solid rgba(255,255,255,0.28) !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+.map-section .info-section .map-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+.map-section .info-section .info-table {
+  grid-area: details;
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.map-section .info-section .info-table th {
+  width: 82px;
+  padding: 13px 10px 13px 0;
+  color: #e6bb62 !important;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.map-section .info-section .info-table td {
+  padding: 13px 0;
+  color: #ffffff !important;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  word-break: keep-all;
+}
+.map-section .info-section .info-table tr:last-child th,
+.map-section .info-section .info-table tr:last-child td { border-bottom: 0; }
+
+.map-section .map-info-content { grid-area: details; min-width: 0; }
+.map-section .map-detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.map-section .map-detail-link:hover { color: #e6bb62 !important; }
+
+@media (max-width: 768px) {
+  .rebranding-section .rebranding-container {
+    width: calc(100% - 28px) !important;
+  }
+  .rebranding-section .rebranding-feature-card {
+    grid-template-columns: 1fr !important;
+  }
+  .rebranding-section .rebrand-card-img {
+    min-height: 180px;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .map-section { padding: 42px 14px 56px !important; }
+  .map-section .info-section {
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "details";
+    gap: 14px;
+    padding: 18px !important;
+  }
+  .map-section .info-section .map-container { aspect-ratio: 16 / 9; }
+  .map-section .info-section .info-table { font-size: 13px; }
+  .map-section .info-section .info-table th { width: 72px; }
+}
+
+
+
 </style>
+
+  <link rel="stylesheet" href="responsive.css">
+
+<link rel="stylesheet" href="site-fixes.css">
+
+
+<style id="final-main-width-and-map-image-fix">
+/* 메인페이지: 리브랜딩과 오시는 길의 콘텐츠 폭을 동일하게 */
+.rebranding-section .rebranding-container,
+.map-section .map-inner {
+  width: min(1200px, calc(100% - 40px)) !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 리브랜딩 카드: 동일한 폭으로 위아래 배치 */
+.rebranding-section .rebranding-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 14px !important;
+}
+.rebranding-section .rebranding-feature-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  box-sizing: border-box !important;
+}
+.rebranding-section .rebrand-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 190px;
+  aspect-ratio: auto !important;
+  overflow: hidden;
+}
+.rebranding-section .rebrand-card-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* 오시는 길: 리브랜딩 내부 콘텐츠와 같은 1200px 폭 */
+.map-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 64px 20px 80px !important;
+}
+.map-section .map-inner {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.map-section .info-section {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+  grid-template-areas: "image details" !important;
+  align-items: center;
+  column-gap: 28px;
+  row-gap: 0;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 0 24px !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  color: #fff;
+  background: #20395f !important;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+}
+.map-section .info-section:last-child {
+  margin-bottom: 0 !important;
+}
+.map-section .info-section .map-container {
+  grid-area: image !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 9 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  background: #20395f !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.map-section .info-section .map-container img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.map-section .map-info-content {
+  grid-area: details !important;
+  min-width: 0;
+}
+.map-section .info-section .section-title {
+  margin: 0 0 12px !important;
+  color: #fff !important;
+}
+.map-section .info-section .info-table {
+  width: 100% !important;
+  margin: 0 !important;
+  border-collapse: collapse;
+  color: #fff !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.map-section .info-section .info-table th {
+  width: 82px;
+  padding: 13px 10px 13px 0;
+  color: #e6bb62 !important;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.map-section .info-section .info-table td {
+  padding: 13px 0;
+  color: #fff !important;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  word-break: keep-all;
+}
+.map-section .info-section .info-table tr:last-child th,
+.map-section .info-section .info-table tr:last-child td {
+  border-bottom: 0;
+}
+.map-section .map-detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.map-section .map-detail-link:hover {
+  color: #e6bb62 !important;
+}
+
+/* 태블릿·모바일 */
+@media (max-width: 768px) {
+  .rebranding-section .rebranding-container,
+  .map-section .map-inner {
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+  }
+  .rebranding-section .rebranding-feature-card {
+    grid-template-columns: 1fr !important;
+  }
+  .rebranding-section .rebrand-card-img {
+    min-height: 180px;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .map-section {
+    padding: 42px 14px 56px !important;
+  }
+  .map-section .info-section {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "image" "details" !important;
+    gap: 14px;
+    padding: 18px !important;
+  }
+  .map-section .info-section .map-container {
+    aspect-ratio: 16 / 9 !important;
+  }
+  .map-section .info-section .info-table {
+    font-size: 13px;
+  }
+  .map-section .info-section .info-table th {
+    width: 72px;
+  }
+}
+
+/* 홍보물 카드 전용: 왼쪽 흰색 영역에 이미지 3개 가로 배치 */
+.rebranding-section .promotion-card-img {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  padding: 12px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+.rebranding-section .promotion-thumbnails {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.rebranding-section .promotion-thumbnails img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  min-width: 0 !important;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<!-- 상단 공지 -->
 <div class="announcement-bar" role="region" aria-label="새소식 공지">
-  <a href="rebranding.html" class="announcement-link">
-    <span class="announcement-tag">NEW</span>
-    <span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span>
-    <span class="announcement-more">자세히 보기 ↗</span>
-  </a>
+
+  <a href="rebranding.html" class="announcement-link"><span class="announcement-tag">NEW</span><span>동래읍성역사문화축제 홈페이지 리브랜딩 오픈! 전통의 가치에 새로운 감각을 더한 축제를 만나보세요.</span><span class="announcement-more">자세히 보기 ↗</span></a>
+
   <button class="announcement-close" type="button" aria-label="공지 닫기">×</button>
+
 </div>
 
-<!-- 상단 메뉴 -->
 <header class="site-header">
-  <a class="brand" href="index.html" aria-label="홈으로">
-    <img src="assets/branding/hero.png" alt="동래읍성역사문화축제 로고" class="brand-logo">
-  </a>
+
+  <a class="brand" href="index.html" aria-label="홈">
+  <img src="assets/branding/hero.png"
+       alt="동래읍성역사문화축제 캐릭터"
+       class="brand-logo">
+
+  <span class="brand-text">
+    <strong>DONGNAE EUPSEONG</strong>
+    <strong>HISTORICAL CULTURAL FESTIVAL</strong>
+  </span>
+</a>
+
+
 
   <nav class="main-nav" id="mainNav">
+
     <div class="nav-item"><a href="index.html">홈</a></div>
 
-    <div class="nav-item">
-      <a href="about.html">축제 소개</a>
-      <div class="sub-menu">
-        <a href="about.html">축제 개요</a>
-        <a href="about_story.html">동래읍성 이야기</a>
-        <a href="about_history.html">축제 연혁</a>
-        <a href="about_leaflet.html">축제 리플릿</a>
-      </div>
-    </div>
+    <div class="nav-item"><a href="about.html">축제 소개</a><div class="sub-menu">
 
-    <div class="nav-item">
-      <a href="programs.html">프로그램</a>
-      <div class="sub-menu">
-        <a href="programs.html">전체 프로그램</a>
-        <a href="experience.html">전통문화 체험</a>
-        <a href="performance.html">공연 및 퍼레이드</a>
-        <a href="course.html">추천 코스</a>
-      </div>
-    </div>
+      <a href="about.html">축제 개요</a><a href="about_story.html">동래읍성 이야기</a><a href="about_history.html">축제 연혁</a><a href="about_leaflet.html">축제 리플릿</a>
 
-    <div class="nav-item">
-      <a href="rebranding.html">리브랜딩</a>
-      <div class="sub-menu">
-        <a href="rebranding.html">리브랜딩 콘셉트</a>
-        <a href="rebranding_character.html">캐릭터 디자인</a>
-        <a href="rebranding_logo.html">로고 디자인</a>
-        <a href="rebranding_system.html">디자인 시스템</a>
-      </div>
-    </div>
+    </div></div>
 
-    <div class="nav-item">
-      <a href="media.html">홍보 콘텐츠</a>
-      <div class="sub-menu">
-        <a href="media.html">홍보 디자인</a>
-        <a href="video.html">영상 콘텐츠</a>
-        <a href="gallery.html">포토 갤러리</a>
-      </div>
-    </div>
+    <div class="nav-item"><a href="programs.html">프로그램</a><div class="sub-menu">
 
-    <div class="nav-item">
-      <a href="events.html">이벤트</a>
-      <div class="sub-menu">
-        <a href="events.html#online">온라인 참여 이벤트</a>
-        <a href="events.html#onsite">현장 체험 이벤트</a>
-      </div>
-    </div>
+      <a href="programs.html">전체 프로그램</a><a href="experience.html">전통문화 체험</a><a href="performance.html">공연 및 퍼레이드</a><a href="course.html">추천 코스</a>
 
-    <div class="nav-item">
-      <a href="visit.html">방문 안내</a>
-      <div class="sub-menu">
-        <a href="visit.html">오시는 길</a>
-        <a href="visit_map.html">축제장 안내도</a>
-      </div>
-    </div>
+    </div></div>
+
+    <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
+
+      <a href="rebranding.html">리브랜딩 컨셉</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="media.html">홍보 콘텐츠</a><div class="sub-menu">
+
+      <a href="media.html">홍보 디자인</a><a href="video.html">영상 콘텐츠</a><a href="gallery.html">포토 갤러리</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="events.html">이벤트</a><div class="sub-menu">
+
+      <a href="events.html#online">온라인 참여 이벤트</a><a href="events.html#onsite">현장 체험 이벤트</a>
+
+    </div></div>
+
+    <div class="nav-item"><a href="visit.html">방문 안내</a><div class="sub-menu">
+
+      <a href="visit.html">오시는 길</a><a href="visit_map.html">축제장 안내도</a>
+
+    </div></div>
+
   </nav>
 
+
+
   <div class="header-tools">
-    <button class="lang-btn active" data-lang="ko">KR</button>
-    <button class="lang-btn" data-lang="en">EN</button>
+
+    <button class="lang-btn active" data-lang="ko">KR</button><button class="lang-btn" data-lang="en">EN</button>
+
     <button class="search-btn" aria-label="검색">⌕</button>
-    <a class="header-cta" href="booking.html"
-       data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+
+    <a class="header-cta" href="booking.html" data-ko="예매하기 →" data-en="PLAN VISIT →">예매하기 →</a>
+
   </div>
 
-  <button class="menu-toggle" id="menuToggle"
-          aria-label="메뉴 열기" aria-expanded="false">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+
 </header>
 
-<!-- 타이틀 영역 -->
-<div class="sub-header">
-  <h1>홍보 디자인</h1>
-  <p>축제의 아이덴티티를 담은 포스터와 다양한 홍보물을 소개합니다.</p>
-</div>
 
-<!-- ===== 홍보 디자인 영역 ===== -->
-<section class="sub-content media-design-section" id="design">
-  <div class="section-heading">
-    <p class="eyebrow">PROMOTIONAL DESIGN</p>
-    <h2>홍보 디자인</h2>
-    <p>포스터, 배너, 카드뉴스 등 축제 홍보물을 소개합니다.</p>
-  </div>
 
-  <div class="media-design-grid">
-    <div class="asset-placeholder">
-      <span class="placeholder-icon">01</span>
-      <strong>포스터 이미지 교체 영역</strong>
-      <small>assets/media/동래읍성 역사문화축제 포스터(3).png</small>
+<main id="home">
+
+  <section class="hero">
+
+    <img class="hero-bg" src="assets/festival/Mainimg.jpg" alt="동래읍성역사문화축제 메인 이미지">
+
+    <div class="hero-shade"></div>
+
+  
+
+    <a class="scroll-cue" href="#quick-links"><span>↓</span><small>SCROLL</small></a>
+
+  </section>
+
+
+
+  <!-- 2027 축제 D-DAY 카운트다운 -->
+
+  <section class="countdown-section" aria-label="2027 동래읍성역사문화축제 카운트다운">
+
+    <div class="countdown-overlay"></div>
+
+    <div class="countdown-content">
+
+      <p class="countdown-kicker">THE 2027 DONGNAE EUPSEONG FESTIVAL</p>
+
+      <h2>동래의 가을, 축제가 시작됩니다</h2>
+
+      <p class="countdown-dday" id="countdownDday">D-000</p>
+
+      <div class="countdown-clock" role="timer" aria-live="off" aria-label="축제 시작까지 남은 시간">
+
+        <div class="countdown-unit"><strong id="countdownDays">000</strong><span>DAYS</span></div>
+
+        <i>:</i>
+
+        <div class="countdown-unit"><strong id="countdownHours">00</strong><span>HOURS</span></div>
+
+        <i>:</i>
+
+        <div class="countdown-unit"><strong id="countdownMinutes">00</strong><span>MINS</span></div>
+
+        <i>:</i>
+
+        <div class="countdown-unit"><strong id="countdownSeconds">00</strong><span>SECS</span></div>
+
+      </div>
+
+      <p class="countdown-date"><span>▣</span> 2027. 10. 15. (금) <b></b> <span>⌖</span> 부산 동래읍성 일원</p>
+
     </div>
 
-    <div class="asset-placeholder">
-      <span class="placeholder-icon">02</span>
-      <strong>배너 이미지 교체 영역</strong>
-      <small>assets/media/gallery-webdesign.png</small>
+  </section>
+
+
+
+  <section class="quick-wrap" id="quick-links">
+
+    <div class="quick-links">
+
+      <a href="about.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><b>01</b><strong data-ko="축제 소개" data-en="ABOUT">축제 소개</strong><small>FESTIVAL</small></a>
+
+      <a href="programs.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><b>02</b><strong data-ko="프로그램" data-en="PROGRAMS">프로그램</strong><small>PROGRAM</small></a>
+
+      <a href="rebranding.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 10-9 10L3 12z"/><path d="M12 7v10"/></svg></span><b>03</b><strong data-ko="리브랜딩" data-en="REBRANDING">리브랜딩</strong><small>REBRANDING</small></a>
+
+      <a href="media.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span><b>04</b><strong data-ko="홍보 콘텐츠" data-en="MEDIA">홍보 콘텐츠</strong><small>MEDIA</small></a>
+
+      <a href="events.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><b>05</b><strong data-ko="이벤트" data-en="EVENTS">이벤트</strong><small>EVENT</small></a>
+
+      <a href="visit.html"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13a7 7 0 0 0-14 0c0 6.8 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg></span><b>06</b><strong data-ko="방문 안내" data-en="VISIT">방문 안내</strong><small>VISIT</small></a>
+
     </div>
 
-    <div class="asset-placeholder">
-      <span class="placeholder-icon">03</span>
-      <strong>카드뉴스 이미지 교체 영역</strong>
-      <small>assets/media/gallery-cardnews.jpg</small>
-    </div>
-  </div>
 </section>
 
+
+
+  <section class="programs section-container" id="programs">
+
+    <div class="section-title"><div><p class="eyebrow"><i></i> PROGRAM</p><h2 data-ko="주요 프로그램" data-en="FEATURED PROGRAMS">주요 프로그램</h2><p data-ko="역사와 문화가 살아있는 다채로운 프로그램을 만나보세요." data-en="Explore programs where history and culture come alive.">역사와 문화가 살아있는 다채로운 프로그램을 만나보세요.</p></div><a class="more-link" href="programs.html" data-ko="전체보기 →" data-en="VIEW ALL →">전체보기 →</a></div>
+
+    <div class="program-grid">
+
+      <article class="program-card"><a class="program-image" href="performance.html#parade"><img src="assets/programs/user-procession.jpg" alt="동래부사행차 길놀이 현장"><span>01</span></a><div class="program-card-copy"><small>01　HISTORICAL PARADE</small><h3>동래부사행차 길놀이</h3><p>전통 복식과 행렬이 어우러지는 동래의 대표 역사 퍼레이드</p><a class="program-detail-link" href="performance.html#parade">프로그램 보기 ↗</a></div></article>
+
+      <article class="program-card"><a class="program-image" href="performance.html#battle"><img src="assets/programs/gallery-stage.jpg" alt="동래성 전투재현 공연 무대"><span>02</span></a><div class="program-card-copy"><small>02　HISTORICAL MUSICAL</small><h3>동래성 전투재현 뮤지컬</h3><p>동래성 전투의 역사적 순간을 무대 공연으로 만나는 시간</p><a class="program-detail-link" href="performance.html#battle">프로그램 보기 ↗</a></div></article>
+
+      <article class="program-card"><a class="program-image" href="experience.html#tug"><img src="assets/programs/judaliggi2.jpg" alt="동래세가닥줄다리기와 전통문화 체험"><span>03</span></a><div class="program-card-copy"><small>03　COMMUNITY EXPERIENCE</small><h3>동래세가닥줄다리기</h3><p>방문객이 함께 힘을 모아 즐기는 참여형 전통문화 체험</p><a class="program-detail-link" href="experience.html#tug">프로그램 보기 ↗</a></div></article>
+
+      <article class="program-card"><a class="program-image" href="experience.html#market"><img src="assets/programs/jangth.JPG" alt="동래읍성 역사문화 체험 공간"><span>04</span></a><div class="program-card-copy"><small>04　HISTORICAL MARKET</small><h3>1592년 동래장터 체험</h3><p>옛 장터의 풍경과 생활문화를 직접 경험하는 역사 체험</p><a class="program-detail-link" href="experience.html#market">프로그램 보기 ↗</a></div></article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ========================================== -->
+
+  <!-- 🎥 홍보 콘텐츠(영상) 섹션 - 기존 구조 유지, 영상만 교체 -->
+
+  <!-- ========================================== -->
+
+  <section class="video-feature" id="media">
+
+    <div class="video-feature-inner">
+
+
+
+      <!-- 왼쪽 텍스트 영역 -->
+
+      <div class="video-feature-copy">
+
+        <p class="eyebrow"><i></i> MEDIA</p>
+
+        <h2 data-ko="영상으로 만나는 동래읍성역사문화축제" data-en="EXPERIENCE THE FESTIVAL THROUGH FILM">영상으로 만나는<br> 동래읍성역사문화축제</h2>
+
+        <p data-ko="축제의 감동과 생생한 현장 영상으로 먼저 만나보세요." data-en="Feel the festival atmosphere and discover its highlights in film.">축제의 감동과 생생한 현장을<br>영상으로 먼저 만나보세요.</p>
+
+        <button class="white-pill"data-open-video="assets/videos/pangpang.mp4">대표 영상 보기 →</button>
+
+      </div>
+
+
+
+     <!-- 오른쪽 영상 영역 -->
+
+
+
+<div class="video-gallery video-single">
+
+        <button class="video-main" data-open-video="assets/videos/pangpang.mp4" aria-label="대표 축제 영상 재생">
+
+          <video src="assets/videos/pangpang.mp4" muted playsinline preload="metadata" poster="assets/media/thumb-night.jpg"></video>
+
+          <span class="play-button">▶</span><b>동래읍성역사문화축제 대표 영상</b><small>대표 영상</small>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="about-band" id="about">
+
+    <div class="about-copy">
+
+      <p class="eyebrow"><i></i> ABOUT</p>
+
+      <h2 data-ko="동래읍성역사문화축제란?" data-en="ABOUT DONGNAE EUPSEONG FESTIVAL">동래읍성역사문화축제란?</h2>
+
+      <p data-ko="동래의 역사적 의미를 바탕으로 과거와 현재가 만나는 문화관광축제입니다.*<*&#x62;r>역사·공연·체험·미디어아트가 어우러진 특별한 축제를 경험하세요." data-en="A cultural festival where the past meets the present through Dongnae's history.*<*&#x62;r>Enjoy heritage, performances, hands-on activities, and media art.">동래의 역사적 의미를 바탕으로 과거와 현재가 만나는 문화관광축제입니다.<br>역사·공연·체험·미디어아트가 어우러진 특별한 축제를 경험하세요.</p>
+
+      <a href="about.html" class="dark-pill" data-ko="축제 소개 보기 →" data-en="LEARN MORE →">축제 소개 보기 →</a>
+
+    </div>
+
+    <img class="about-fortress" src="assets/programs/ju;daliggi.jpg" alt="">
+
+  </section>
+
+
+
+  <section class="sns-section section-container gallery-section" id="gallery">
+
+    <div class="section-title">
+
+      <div>
+
+        <p class="eyebrow"><i></i> PHOTO GALLERY</p>
+
+        <h2 data-ko="축제의 순간을 기록하다" data-en="FESTIVAL MOMENTS">축제의 순간을 기록하다</h2>
+
+        <p data-ko="공연부터 야간 풍경까지, 동래의 다채로운 순간을 만나보세요." data-en="Explore performances, festival scenes, and nighttime views.">공연부터 야간 풍경까지, 동래의 다채로운 순간을 만나보세요.</p>
+
+      </div>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <button class="gallery-item gallery-item-feature" data-open-image="assets/festival/gallery-fortress.jpg"><img src="assets/festival/gallery-fortress.jpg" alt="동래읍성 전경"><span class="gallery-label"><small>01 / HERITAGE</small><b>읍성의 풍경</b></span></button>
+
+      <button class="gallery-item" data-open-image="assets/programs/gallery-dance.jpg"><img src="assets/programs/gallery-dance.jpg" alt="전통 공연 장면"><span class="gallery-label"><small>02 / PERFORMANCE</small><b>전통의 움직임</b></span></button>
+
+      <button class="gallery-item" data-open-image="assets/programs/gallery-performance.jpg"><img src="assets/programs/gallery-performance.jpg" alt="축제 현장 공연"><span class="gallery-label"><small>03 / FESTIVAL</small><b>축제의 현장</b></span></button>
+
+      <button class="gallery-item" data-open-image="assets/festival/gallery-future.jpg"><img src="assets/festival/gallery-future.jpg" alt="미디어 체험 컨셉 이미지"><span class="gallery-label"><small>04 / EXPERIENCE</small><b>새로운 체험</b></span></button>
+
+      <button class="gallery-item" data-open-image="assets/programs/gallery-stage.jpg"><img src="assets/programs/gallery-stage.jpg" alt="공연 무대 컨셉 이미지"><span class="gallery-label"><small>05 / STAGE</small><b>무대 위 순간</b></span></button>
+
+
+
+    </div>
+    
+
+        <a href="gallery.html" class="gallery-more">자세히 보기 →</a>
+
+      <a class="event-panel" href="events.html"><div><p class="eyebrow"><i></i> EVENT</p><h3 data-ko="진행 중인 이벤트" data-en="CURRENT EVENTS">진행 중인 이벤트</h3><p data-ko="다양한 이벤트에 참여하&#xACE0;*<*&#x62;r>특별한 혜택을 받아보세요!" data-en="Join the activities and enjoy special moments!">다양한 이벤트에 참여하고<br>특별한 혜택을 받아보세요!</p></div><span class="gift">🎁</span><b>›</b></a>
+
+      <div class="notice-panel"><div class="notice-heading"><p class="eyebrow"><i></i> NOTICE</p><h3 data-ko="공지사항" data-en="NOTICE">공지사항</h3></div><ul><li><span data-ko="2027 축제 프로그램 안내" data-en="Festival program announcement">2027 축제 프로그램 안내</span><time>추후 공지</time></li><li><span data-ko="축제 자원봉사자 모집 안내" data-en="Volunteer recruitment">축제 자원봉사자 모집 안내</span><time>추후 공지</time></li><li><span data-ko="미디어아트 사전 예약 오픈" data-en="Media art reservations open">미디어아트 사전 예약 오픈</span><time>추후 공지</time></li></ul></div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="rebranding-section" id="rebranding">
+
+    <div class="rebranding-container">
+
+      <div class="rebranding-header">
+
+        <p class="eyebrow"><i></i> REBRANDING</p>
+
+        <h2>전통을 오늘의 감각으로</h2>
+
+        <p>로고와 캐릭터, 축제의 새로운 비주얼 아이덴티티를 소개합니다.</p>
+
+      </div>
+
+
+
+      <div class="rebranding-grid rebranding-feature-list">
+
+        <a href="rebranding_character.html" class="rebrand-card rebranding-feature-card" style="text-decoration:none; color:inherit;">
+
+          <div class="rebrand-card-img">
+
+            <img src="assets/festival/2026-10-26 103955.png" alt="축제 홍보 캐릭터 한결">
+
+          </div>
+
+          <div class="rebrand-card-content">
+
+            <span class="rebranding-card-kicker">CHARACTER</span>
+
+            <h3>캐릭터</h3>
+
+            <p>동래읍성의 역사와 이야기를 담은 축제 홍보 캐릭터 ‘한결’을 소개합니다.</p>
+
+            <span class="rebranding-card-link">캐릭터 자세히 보기 ↗</span>
+
+          </div>
+
+        </a>
+
+
+
+        <a href="rebranding_logo.html" class="rebrand-card rebranding-feature-card" style="text-decoration:none; color:inherit;">
+
+          <div class="rebrand-card-img">
+
+            <img src="assets/branding/logowhite.png" alt="동래읍성역사문화축제 리브랜딩 로고 디자인">
+
+          </div>
+
+          <div class="rebrand-card-content">
+
+            <span class="rebranding-card-kicker">LOGO DESIGN</span>
+
+            <h3>로고</h3>
+
+            <p>동래읍성의 상징을 현대적인 감각으로 재해석한 축제 로고 디자인을 소개합니다.</p>
+
+            <span class="rebranding-card-link">로고 자세히 보기 ↗</span>
+
+          </div>
+
+        </a>
+
+        <!-- 홍보물 디자인 카드: 기존 캐릭터·로고 카드와 동일한 가로형 레이아웃 -->
+        <a href="media.html"
+           class="rebrand-card rebranding-feature-card promotion-feature-card"
+           style="text-decoration:none; color:inherit;">
+
+          <div class="rebrand-card-img promotion-card-img">
+            <div class="promotion-thumbnails">
+              <img src="assets/media/cardnews/cardnews_3x4.png" alt="카드뉴스 디자인">
+              <img src="assets/media/poster.banner_3x4.png" alt="포스터 및 배너 디자인">
+              <img src="assets/media/pamphlet/pamphletdetail.png" alt="팜플렛 디자인">
+            </div>
+          </div>
+
+          <div class="rebrand-card-content">
+            <span class="rebranding-card-kicker">PROMOTION DESIGN</span>
+            <h3>홍보물 디자인</h3>
+            <p>국문·영문 SNS 홍보 콘텐츠와 축제 홍보 디자인을 소개합니다.</p>
+            <span class="rebranding-card-link">홍보물 자세히 보기 ↗</span>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="map-section" id="visit">
+
+    <div class="map-inner">
+
+      <div class="info-section">
+
+        <div class="map-container">
+
+          <img src="assets/visit/map.png" alt="축제장 입구 및 메인 광장 지도">
+
+        </div>
+
+        <div class="map-info-content">
+
+          <h3 class="section-title"><span></span>축제장 입구 및 메인 광장</h3>
+
+          <table class="info-table">
+
+          <tr>
+
+            <th>주소</th>
+
+            <td>부산광역시 동래구 복천로59번길 28-7 (동래읍성 북문 경상 일원)</td>
+
+          </tr>
+
+          <tr>
+
+            <th>지하철</th>
+
+            <td>부산 도시철도 1호선 동래역 3번 출구 (축제 기간 무료 셔틀버스 운행)</td>
+
+          </tr>
+
+          <tr>
+
+            <th>버스</th>
+
+            <td>일반버스 110-1, 51, 49, 100, 179, 50번 이용 → 명륜초등학교, 동래우체국 정류장 하차</td>
+
+          </tr>
+
+          </table>
+
+          <a class="map-detail-link" href="visit.html">자세히 보기 ↗</a>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="info-section">
+
+        <div class="map-container">
+
+          <img src="assets/visit/parking-shuttle-guide.png" alt="주차장 및 셔틀버스 안내 지도">
+
+        </div>
+
+        <div class="map-info-content">
+
+          <h3 class="section-title"><span></span>주차장 및 셔틀버스 안내</h3>
+
+          <table class="info-table">
+
+          <tr>
+
+            <th>셔틀버스</th>
+
+            <td>동래역 3번 출구 ↔ 축제장 (10~20분 간격 운행)</td>
+
+          </tr>
+
+          <tr>
+
+            <th>주차</th>
+
+            <td>복천박물관 주차장(무료), 동래문화회관(사직공원 공영주차장: 1시간 600원, 종일 2,400원)</td>
+
+          </tr>
+
+          <tr>
+
+            <th>안내</th>
+
+            <td>축제 기간에는 주차 공간이 매우 혼잡하므로 대중교통(지하철+셔틀버스) 이용을 강력히 권장합니다.</td>
+
+          </tr>
+
+          </table>
+
+          <a class="map-detail-link" href="visit.html">자세히 보기 ↗</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+
+<footer class="site-footer-new">
+
+  <div class="sponsor-area">
+
+    <p class="sponsor-kicker">PARTNERS & SPONSORS</p>
+
+    <h3 class="sponsor-title">축제와 함께하는 브랜드</h3>
+
+    <div class="sponsor-logos sponsor-text-logos">
+
+      <span>부산광역시</span><span>한국관광공사</span><span>부산관광공사</span><span>동래문화원</span><span>부산광역시동래구</span>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="footer-info-area">
+
+    <div class="footer-left">
+
+      <div class="footer-logo">
+
+        <img src="assets/branding/LOGO1.svg" alt="동래읍성역사문화축제" style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 10px;">
+
+        <span>동래읍성역사축제추진위원회</span>
+
+      </div>
+
+      <div class="footer-address">
+
+        <p>(사)부산축제조직위원회 | 47813 부산광역시 동래구 충렬대로 237번길 28 2층 | 대표자: 전재수 | 사업자등록번호: 6178204474</p>
+
+        <p>운영시간 09:00~18:00 | Tel. 051-713-5000 | Fax. 051-713-5009</p>
+
+        <p>Copyright (C) 동래읍성역사문화축제. All rights reserved.</p>
+
+      </div>
+
+    </div>
+
+    <div class="footer-right-links">
+
+      <a href="#privacy">개인정보처리방침</a>
+
+      <a href="#sitemap">이메일무단수집거부</a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- 모달(팝업) 영역 -->
+
+<div id="mediaModal" class="modal" aria-hidden="true">
+
+  <button id="modalClose" class="modal-close" aria-label="닫기">×</button>
+
+  <button id="modalPrev" class="modal-prev" aria-label="이전">‹</button>
+
+  <button id="modalNext" class="modal-next" aria-label="다음">›</button>
+
+  <div class="modal-content" id="modalContent"></div>
+
+  <div class="modal-caption" id="modalCaption"></div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+</html>
