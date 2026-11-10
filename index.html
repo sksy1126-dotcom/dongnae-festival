@@ -113,7 +113,20 @@
 
 
 
-  .section-title { font-size: 22px; font-weight: 800; color: #1a365d; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; letter-spacing: -0.5px; }
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a365d;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    text-align: left !important;
+    letter-spacing: -0.5px;
+}
 
   .section-title span { display: inline-block; width: 5px; height: 22px; background-color: #e92d35; border-radius: 2px; }
 
@@ -499,6 +512,37 @@
     width: 72px;
   }
 }
+
+/* 홍보물 카드 전용: 왼쪽 흰색 영역에 이미지 3개 가로 배치 */
+.rebranding-section .promotion-card-img {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  padding: 12px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+.rebranding-section .promotion-thumbnails {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.rebranding-section .promotion-thumbnails img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  min-width: 0 !important;
+}
+
 </style>
 
 </head>
@@ -546,7 +590,7 @@
 
     <div class="nav-item"><a href="rebranding.html">리브랜딩</a><div class="sub-menu">
 
-      <a href="rebranding.html">리브랜딩 콘셉트</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
+      <a href="rebranding.html">리브랜딩 컨셉</a><a href="rebranding_character.html">캐릭터 디자인</a><a href="rebranding_logo.html">로고 디자인</a><a href="rebranding_system.html">디자인 시스템</a>
 
     </div></div>
 
@@ -780,13 +824,14 @@
 
       <button class="gallery-item" data-open-image="assets/programs/gallery-performance.jpg"><img src="assets/programs/gallery-performance.jpg" alt="축제 현장 공연"><span class="gallery-label"><small>03 / FESTIVAL</small><b>축제의 현장</b></span></button>
 
-      <button class="gallery-item" data-open-image="assets/festival/gallery-future.jpg"><img src="assets/festival/gallery-future.jpg" alt="미디어 체험 콘셉트 이미지"><span class="gallery-label"><small>04 / EXPERIENCE</small><b>새로운 체험</b></span></button>
+      <button class="gallery-item" data-open-image="assets/festival/gallery-future.jpg"><img src="assets/festival/gallery-future.jpg" alt="미디어 체험 컨셉 이미지"><span class="gallery-label"><small>04 / EXPERIENCE</small><b>새로운 체험</b></span></button>
 
-      <button class="gallery-item" data-open-image="assets/programs/gallery-stage.jpg"><img src="assets/programs/gallery-stage.jpg" alt="공연 무대 콘셉트 이미지"><span class="gallery-label"><small>05 / STAGE</small><b>무대 위 순간</b></span></button>
+      <button class="gallery-item" data-open-image="assets/programs/gallery-stage.jpg"><img src="assets/programs/gallery-stage.jpg" alt="공연 무대 컨셉 이미지"><span class="gallery-label"><small>05 / STAGE</small><b>무대 위 순간</b></span></button>
 
 
 
     </div>
+    
 
         <a href="gallery.html" class="gallery-more">자세히 보기 →</a>
 
@@ -860,6 +905,28 @@
 
             <span class="rebranding-card-link">로고 자세히 보기 ↗</span>
 
+          </div>
+
+        </a>
+
+        <!-- 홍보물 디자인 카드: 기존 캐릭터·로고 카드와 동일한 가로형 레이아웃 -->
+        <a href="media.html"
+           class="rebrand-card rebranding-feature-card promotion-feature-card"
+           style="text-decoration:none; color:inherit;">
+
+          <div class="rebrand-card-img promotion-card-img">
+            <div class="promotion-thumbnails">
+              <img src="assets/media/cardnews/cardnews_3x4.png" alt="카드뉴스 디자인">
+              <img src="assets/media/poster.banner_3x4.png" alt="포스터 및 배너 디자인">
+              <img src="assets/media/pamphlet/pamphletdetail.png" alt="팜플렛 디자인">
+            </div>
+          </div>
+
+          <div class="rebrand-card-content">
+            <span class="rebranding-card-kicker">PROMOTION DESIGN</span>
+            <h3>홍보물 디자인</h3>
+            <p>국문·영문 SNS 홍보 콘텐츠와 축제 홍보 디자인을 소개합니다.</p>
+            <span class="rebranding-card-link">홍보물 자세히 보기 ↗</span>
           </div>
 
         </a>
