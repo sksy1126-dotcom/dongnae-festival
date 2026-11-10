@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>팜플렛 디자인 | 동래읍성역사문화축제</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background: #faf8f2;
+    color: #10213d;
+}
+
+header {
+    height: 72px;
+    background: #0e203c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero {
+    background: #20395f;
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 13px;
+    color: #dce4ef;
+}
+
+.section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 65px 25px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cbd2dc;
+    padding-bottom: 16px;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 23px;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: #8490a0;
+}
+
+.detail-image {
+    width: 100%;
+    background: white;
+    border: 1px solid #e1e4e9;
+    padding: 15px;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5, 15, 30, 0.94);
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+footer {
+    background: #0e203c;
+    color: #cbd2dc;
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 15px;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="media.html">DONGNAE FESTIVAL</a>
+    <a href="media.html">← 홍보 콘텐츠</a>
+</header>
+
+<section class="hero">
+    <h1>팜플렛 디자인</h1>
+    <p>축제 정보와 프로그램을 담은 안내 디자인</p>
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>전체 디자인 상세</h2>
+        <span>DESIGN OVERVIEW</span>
+    </div>
+
+    <div class="detail-image">
+        <img
+            src="assets/media/pamphlet/pamphletdetail.png"
+            alt="동래읍성역사문화축제 팜플렛 디자인"
+            onclick="openModal(this.src)"
+            onerror="this.alt='팜플렛 이미지 경로를 확인해 주세요.'">
+    </div>
+
+</section>
+
+<div class="modal" id="imageModal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImage" src="" alt="팜플렛 확대 이미지">
+</div>
+
+<footer>
+    DONGNAE EUPSEONG HISTORICAL FESTIVAL
+</footer>
+
+<script>
+function openModal(src) {
+    document.getElementById("modalImage").src = src;
+    document.getElementById("imageModal").classList.add("active");
+}
+
+function closeModal() {
+    document.getElementById("imageModal").classList.remove("active");
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
+
+</body>
+</html>
